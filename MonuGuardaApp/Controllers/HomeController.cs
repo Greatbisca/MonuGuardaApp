@@ -8,13 +8,7 @@ using Microsoft.Extensions.Logging;
 using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
-{//oshdfopdwboefiwnvowbvibw
-
-
-
-
-
-    //7akjfbusvhdbcnpo
+{
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
