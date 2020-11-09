@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {}
+    "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {
+    "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
+        "projectUniqueName": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
         "projectName": "MonuGuardaApp",
-        "projectPath": "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
-        "packagesPath": "C:\\Users\\diogo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\obj\\",
+        "projectPath": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -60,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
