@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {}
+    "C:\\Users\\franc\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {
+    "C:\\Users\\franc\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
+        "projectUniqueName": "C:\\Users\\franc\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
         "projectName": "MonuGuardaApp",
-        "projectPath": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
-        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\obj\\",
+        "projectPath": "C:\\Users\\franc\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
+        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\franc\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -37,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
