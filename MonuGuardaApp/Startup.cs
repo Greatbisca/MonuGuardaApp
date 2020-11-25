@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using MonuGuardaApp.Data;
 
+
 namespace MonuGuardaApp
 {
     public class Startup
@@ -29,6 +30,8 @@ namespace MonuGuardaApp
 
             services.AddDbContext<MonuGuardaAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MonuGuardaAppContext")));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

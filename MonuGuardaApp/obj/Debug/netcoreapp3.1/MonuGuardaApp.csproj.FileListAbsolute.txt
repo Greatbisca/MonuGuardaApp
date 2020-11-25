@@ -395,8 +395,8 @@ C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Create.cshtml.g.cs
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Delete.cshtml.g.cs
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Details.cshtml.g.cs
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Edit.cshtml.g.cs
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Index.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Rotas\Create.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Rotas\Delete.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Rotas\Details.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Rotas\Edit.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Rotas\Index.cshtml.g.cs

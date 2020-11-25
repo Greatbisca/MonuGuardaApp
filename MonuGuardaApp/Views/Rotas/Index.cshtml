@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MonuGuardaApp.Models.Clientes>
+﻿@model IEnumerable<MonuGuardaApp.Models.Rotas>
 
 @{
     ViewData["Title"] = "Index";
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Telemovel)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ClientId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ClientId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ClientId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.RotasId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RotasId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RotasId">Delete</a>
             </td>
         </tr>
 }

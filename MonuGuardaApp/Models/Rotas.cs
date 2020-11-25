@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace MonuGuardaApp.Models
 {
-    public class Clientes
+    public class Rotas
     {
-        [Key]
-        public int ClientId { get; set; }
+        public int RotasId { get; set; }
 
         [Required]
         [StringLength(100)]

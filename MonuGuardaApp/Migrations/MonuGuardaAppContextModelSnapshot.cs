@@ -18,9 +18,9 @@ namespace MonuGuardaApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MonuGuardaApp.Models.Clientes", b =>
+            modelBuilder.Entity("MonuGuardaApp.Models.Rotas", b =>
                 {
-                    b.Property<int>("ClientId")
+                    b.Property<int>("RotasId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -36,9 +36,9 @@ namespace MonuGuardaApp.Migrations
                     b.Property<int>("Telemovel")
                         .HasColumnType("int");
 
-                    b.HasKey("ClientId");
+                    b.HasKey("RotasId");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Rotas");
                 });
 #pragma warning restore 612, 618
         }

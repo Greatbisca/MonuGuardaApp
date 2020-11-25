@@ -10,6 +10,6 @@ namespace MonuGuardaApp.Models
     {
         public MonuGuardaDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Rotas> Rotas { get; set; }
     }
 }

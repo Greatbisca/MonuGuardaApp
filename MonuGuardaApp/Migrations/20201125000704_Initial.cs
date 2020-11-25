@@ -7,10 +7,10 @@ namespace MonuGuardaApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Rotas",
                 columns: table => new
                 {
-                    ClientId = table.Column<int>(nullable: false)
+                    RotasId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Morada = table.Column<string>(nullable: true),
@@ -18,14 +18,14 @@ namespace MonuGuardaApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.ClientId);
+                    table.PrimaryKey("PK_Rotas", x => x.RotasId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "Rotas");
         }
     }
 }
