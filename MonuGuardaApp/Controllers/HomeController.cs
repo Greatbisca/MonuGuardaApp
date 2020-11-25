@@ -33,6 +33,10 @@ namespace MonuGuardaApp.Controllers
             return View();
         }
 
+        public IActionResult Monuments()
+        {
+            return View();
+        }
         public IActionResult About()
         {
             return View();
