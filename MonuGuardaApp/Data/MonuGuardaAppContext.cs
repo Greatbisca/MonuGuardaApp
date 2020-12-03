@@ -14,8 +14,8 @@ namespace MonuGuardaApp.Data
         {
         }
 
-        public DbSet<MonuGuardaApp.Models.Rotas> Rotas { get; set; }
+        public DbSet<Rotas> Rotas { get; set; }
 
-        public DbSet<MonuGuardaApp.Models.Customers> Customers { get; set; }
+        public DbSet<Customers> Customers { get; set; }
     }
 }
