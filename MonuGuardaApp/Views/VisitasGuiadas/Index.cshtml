@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MonuGuardaApp.Models.VisitasGuiadas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GuiaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalChegada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataVisita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Morada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telemovel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NMaxPessoas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuiaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalChegada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataVisita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Morada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telemovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NMaxPessoas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

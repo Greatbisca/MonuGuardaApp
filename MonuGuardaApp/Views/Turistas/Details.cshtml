@@ -1,20 +1,13 @@
-﻿@model MonuGuardaApp.Models.Customers
+﻿@model MonuGuardaApp.Models.Turista
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Details";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+<h1>Details</h1>
 
 <div>
-    <h4>Customers</h4>
+    <h4>Turista</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -30,6 +23,12 @@
             @Html.DisplayFor(model => model.Morada)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NIF)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NIF)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
         <dd class = "col-sm-10">
@@ -41,11 +40,15 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Telemovel)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.CustomersId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.TuristaId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-</body>
-</html>

@@ -10,22 +10,22 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
-    public class CustomersController : Controller
+    public class VisitasGuiadasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
 
-        public CustomersController(MonuGuardaAppContext context)
+        public VisitasGuiadasController(MonuGuardaAppContext context)
         {
             _context = context;
         }
 
-        // GET: Customers
+        // GET: VisitasGuiadas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View(await _context.Rotas.ToListAsync());
         }
 
-        // GET: Customers/Details/5
+        // GET: VisitasGuiadas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomersId == id);
-            if (customers == null)
+            var visitasGuiadas = await _context.Rotas
+                .FirstOrDefaultAsync(m => m.VisitasGuiadasId == id);
+            if (visitasGuiadas == null)
             {
                 return NotFound();
             }
 
-            return View(customers);
+            return View(visitasGuiadas);
         }
 
-        // GET: Customers/Create
+        // GET: VisitasGuiadas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: VisitasGuiadas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomersId,Nome,Morada,Email,Telemovel")] Customers customers)
+        public async Task<IActionResult> Create([Bind("VisitasGuiadasId,GuiaId,Nome,LocalPartida,LocalChegada,DataVisita,Morada,Telemovel,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customers);
+                _context.Add(visitasGuiadas);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(customers);
+            return View(visitasGuiadas);
         }
 
-        // GET: Customers/Edit/5
+        // GET: VisitasGuiadas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers.FindAsync(id);
-            if (customers == null)
+            var visitasGuiadas = await _context.Rotas.FindAsync(id);
+            if (visitasGuiadas == null)
             {
                 return NotFound();
             }
-            return View(customers);
+            return View(visitasGuiadas);
         }
 
-        // POST: Customers/Edit/5
+        // POST: VisitasGuiadas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomersId,Nome,Morada,Email,Telemovel")] Customers customers)
+        public async Task<IActionResult> Edit(int id, [Bind("VisitasGuiadasId,GuiaId,Nome,LocalPartida,LocalChegada,DataVisita,Morada,Telemovel,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
         {
-            if (id != customers.CustomersId)
+            if (id != visitasGuiadas.VisitasGuiadasId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace MonuGuardaApp.Controllers
             {
                 try
                 {
-                    _context.Update(customers);
+                    _context.Update(visitasGuiadas);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomersExists(customers.CustomersId))
+                    if (!VisitasGuiadasExists(visitasGuiadas.VisitasGuiadasId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(customers);
+            return View(visitasGuiadas);
         }
 
-        // GET: Customers/Delete/5
+        // GET: VisitasGuiadas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomersId == id);
-            if (customers == null)
+            var visitasGuiadas = await _context.Rotas
+                .FirstOrDefaultAsync(m => m.VisitasGuiadasId == id);
+            if (visitasGuiadas == null)
             {
                 return NotFound();
             }
 
-            return View(customers);
+            return View(visitasGuiadas);
         }
 
-        // POST: Customers/Delete/5
+        // POST: VisitasGuiadas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var customers = await _context.Customers.FindAsync(id);
-            _context.Customers.Remove(customers);
+            var visitasGuiadas = await _context.Rotas.FindAsync(id);
+            _context.Rotas.Remove(visitasGuiadas);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CustomersExists(int id)
+        private bool VisitasGuiadasExists(int id)
         {
-            return _context.Customers.Any(e => e.CustomersId == id);
+            return _context.Rotas.Any(e => e.VisitasGuiadasId == id);
         }
     }
 }

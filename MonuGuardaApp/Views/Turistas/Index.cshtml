@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MonuGuardaApp.Models.Rotas>
+﻿@model IEnumerable<MonuGuardaApp.Models.Turista>
 
 @{
     ViewData["Title"] = "Index";
@@ -19,7 +19,16 @@
                 @Html.DisplayNameFor(model => model.Morada)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.NIF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Telemovel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
             </th>
             <th></th>
         </tr>
@@ -34,12 +43,21 @@
                 @Html.DisplayFor(modelItem => item.Morada)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.NIF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Telemovel)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RotasId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RotasId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RotasId">Delete</a>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TuristaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TuristaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TuristaId">Delete</a>
             </td>
         </tr>
 }

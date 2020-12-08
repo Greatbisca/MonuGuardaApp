@@ -14,8 +14,12 @@ namespace MonuGuardaApp.Data
         {
         }
 
-        public DbSet<Rotas> Rotas { get; set; }
+        public DbSet<VisitasGuiadas> Rotas { get; set; }
 
-        public DbSet<Customers> Customers { get; set; }
+        public DbSet<Turista> Customers { get; set; }
+
+        public DbSet<MonuGuardaApp.Models.Guia> Guia { get; set; }
+
+        public DbSet<MonuGuardaApp.Models.ReservaVisita> ReservaVisita { get; set; }
     }
 }

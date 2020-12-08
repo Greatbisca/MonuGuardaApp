@@ -1,0 +1,72 @@
+﻿@model MonuGuardaApp.Models.VisitasGuiadas
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>VisitasGuiadas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GuiaId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GuiaId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LocalPartida)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LocalPartida)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LocalChegada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LocalChegada)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataVisita)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataVisita)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Morada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Morada)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telemovel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telemovel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NMaxPessoas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NMaxPessoas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Completo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Completo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VisitasGuiadasId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

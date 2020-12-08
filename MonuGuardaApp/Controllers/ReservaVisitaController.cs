@@ -10,22 +10,22 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
-    public class RotasController : Controller
+    public class ReservaVisitaController : Controller
     {
         private readonly MonuGuardaAppContext _context;
 
-        public RotasController(MonuGuardaAppContext context)
+        public ReservaVisitaController(MonuGuardaAppContext context)
         {
             _context = context;
         }
 
-        // GET: Rotas
+        // GET: ReservaVisitas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Rotas.ToListAsync());
+            return View(await _context.ReservaVisita.ToListAsync());
         }
 
-        // GET: Rotas/Details/5
+        // GET: ReservaVisitas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var rotas = await _context.Rotas
-                .FirstOrDefaultAsync(m => m.RotasId == id);
-            if (rotas == null)
+            var reservaVisita = await _context.ReservaVisita
+                .FirstOrDefaultAsync(m => m.ReservaVisitaId == id);
+            if (reservaVisita == null)
             {
                 return NotFound();
             }
 
-            return View(rotas);
+            return View(reservaVisita);
         }
 
-        // GET: Rotas/Create
+        // GET: ReservaVisitas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Rotas/Create
+        // POST: ReservaVisitas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RotasId,Nome,Morada,Telemovel")] Rotas rotas)
+        public async Task<IActionResult> Create([Bind("ReservaVisitaId,TuristaId,VisitasGuiadasId,DataReserva,NPessoas")] ReservaVisita reservaVisita)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(rotas);
+                _context.Add(reservaVisita);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(rotas);
+            return View(reservaVisita);
         }
 
-        // GET: Rotas/Edit/5
+        // GET: ReservaVisitas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var rotas = await _context.Rotas.FindAsync(id);
-            if (rotas == null)
+            var reservaVisita = await _context.ReservaVisita.FindAsync(id);
+            if (reservaVisita == null)
             {
                 return NotFound();
             }
-            return View(rotas);
+            return View(reservaVisita);
         }
 
-        // POST: Rotas/Edit/5
+        // POST: ReservaVisitas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RotasId,Nome,Morada,Telemovel")] Rotas rotas)
+        public async Task<IActionResult> Edit(int id, [Bind("ReservaVisitaId,TuristaId,VisitasGuiadasId,DataReserva,NPessoas")] ReservaVisita reservaVisita)
         {
-            if (id != rotas.RotasId)
+            if (id != reservaVisita.ReservaVisitaId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace MonuGuardaApp.Controllers
             {
                 try
                 {
-                    _context.Update(rotas);
+                    _context.Update(reservaVisita);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RotasExists(rotas.RotasId))
+                    if (!ReservaVisitaExists(reservaVisita.ReservaVisitaId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(rotas);
+            return View(reservaVisita);
         }
 
-        // GET: Rotas/Delete/5
+        // GET: ReservaVisitas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var rotas = await _context.Rotas
-                .FirstOrDefaultAsync(m => m.RotasId == id);
-            if (rotas == null)
+            var reservaVisita = await _context.ReservaVisita
+                .FirstOrDefaultAsync(m => m.ReservaVisitaId == id);
+            if (reservaVisita == null)
             {
                 return NotFound();
             }
 
-            return View(rotas);
+            return View(reservaVisita);
         }
 
-        // POST: Rotas/Delete/5
+        // POST: ReservaVisitas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var rotas = await _context.Rotas.FindAsync(id);
-            _context.Rotas.Remove(rotas);
+            var reservaVisita = await _context.ReservaVisita.FindAsync(id);
+            _context.ReservaVisita.Remove(reservaVisita);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RotasExists(int id)
+        private bool ReservaVisitaExists(int id)
         {
-            return _context.Rotas.Any(e => e.RotasId == id);
+            return _context.ReservaVisita.Any(e => e.ReservaVisitaId == id);
         }
     }
 }
