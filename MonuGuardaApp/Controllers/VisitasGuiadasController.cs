@@ -13,36 +13,16 @@ namespace MonuGuardaApp.Controllers
     public class VisitasGuiadasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
-        private MonuGuardaRepositorio repository;
 
-       /* public VisitasGuiadasController(MonuGuardaAppContext context)
+        public VisitasGuiadasController(MonuGuardaAppContext context)
         {
-            _context = context;
-        }*/
-
-        public VisitasGuiadasController(MonuGuardaRepositorio repository, MonuGuardaAppContext context)
-        {
-            this.repository = repository;
             _context = context;
         }
 
         // GET: VisitasGuiadas
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index()
         {
-            var pagination = new PagingInfo
-            {
-                CurrentPage = page,
-                PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
-                TotalItems = repository.VisitasGuiadas.Count()
-            };
-            return View(
-                new VisitasGuiadasListViewModel
-                {
-                    VisitasGuiadas = repository.VisitasGuiadas.OrderBy(p => p.VisitasGuiadasId)
-                        .Skip((page - 1) * pagination.PageSize).Take(pagination.PageSize),
-                    Pagination = pagination
-                }
-            );
+            return View(await _context.VisitasGuiadas.ToListAsync());
         }
 
         // GET: VisitasGuiadas/Details/5

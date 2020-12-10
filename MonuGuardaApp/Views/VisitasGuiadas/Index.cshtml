@@ -4,11 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Veja aqui as Visitas Guiadas Disponíveis</h1>
 
-<p>
+<!--<p>
     <a asp-action="Create">Create New</a>
-</p>
+</p>-->
 <table class="table">
     <thead>
         <tr>
@@ -43,41 +43,45 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GuiaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalPartida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalChegada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataVisita)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Morada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telemovel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NMaxPessoas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Completo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuiaId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocalPartida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocalChegada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataVisita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Morada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telemovel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NMaxPessoas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Completo)
+                </td>
+                <!--<td>
+                    <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
+                </td>-->
+            </tr>
+        }
     </tbody>
 </table>
+<div class="col" style="margin-bottom: 20px">
+    <a class="btn btn-lg btn-secondary btn-block" href="/ReservaVisita/Create">Inscreve-te aqui</a>
+</div>
