@@ -8,5 +8,7 @@ namespace MonuGuardaApp.Models
     public class MonuGuardaRepositorio
     {
         public IEnumerable<VisitasGuiadas> VisitasGuiadas { get; }
+
+        public IEnumerable<Turista> Turista { get; }
     }
 }

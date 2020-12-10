@@ -32,11 +32,11 @@ namespace MonuGuardaApp
             services.AddDbContext<MonuGuardaAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MonuGuardaAppContext")));
 
-            services.AddDbContext<MonuGuardaDbContext>(options =>
+            /*services.AddDbContext<MonuGuardaDbContext>(options =>
                    options.UseSqlServer(
                        Configuration.GetConnectionString("MonuGuardaConnection")));
 
-            services.AddTransient<MonuGuardaRepositorio, EntityFrameworkRepository>();
+            services.AddTransient<MonuGuardaRepositorio, EntityFrameworkRepository>();*/
 
         }
 

@@ -10,11 +10,11 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
-    public class TuristaController : Controller
+    public class TuristasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
 
-        public TuristaController(MonuGuardaAppContext context)
+        public TuristasController(MonuGuardaAppContext context)
         {
             _context = context;
         }

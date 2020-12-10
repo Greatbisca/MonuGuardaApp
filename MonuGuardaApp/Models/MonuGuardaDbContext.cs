@@ -10,5 +10,7 @@ namespace MonuGuardaApp.Models
     {
         public MonuGuardaDbContext(DbContextOptions options) : base(options) { }
         public DbSet<VisitasGuiadas> VisitasGuiadas { get; set; }
+
+        public DbSet<Turista> Turitas { get; set; }
     }
 }
