@@ -22,7 +22,7 @@ namespace MonuGuardaApp.Controllers
         // GET: Turistas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View(await _context.Turista.ToListAsync());
         }
 
         // GET: Turistas/Details/5
@@ -33,7 +33,7 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var turista = await _context.Customers
+            var turista = await _context.Turista
                 .FirstOrDefaultAsync(m => m.TuristaId == id);
             if (turista == null)
             {
@@ -73,7 +73,7 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var turista = await _context.Customers.FindAsync(id);
+            var turista = await _context.Turista.FindAsync(id);
             if (turista == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var turista = await _context.Customers
+            var turista = await _context.Turista
                 .FirstOrDefaultAsync(m => m.TuristaId == id);
             if (turista == null)
             {
@@ -139,15 +139,15 @@ namespace MonuGuardaApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var turista = await _context.Customers.FindAsync(id);
-            _context.Customers.Remove(turista);
+            var turista = await _context.Turista.FindAsync(id);
+            _context.Turista.Remove(turista);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TuristaExists(int id)
         {
-            return _context.Customers.Any(e => e.TuristaId == id);
+            return _context.Turista.Any(e => e.TuristaId == id);
         }
     }
 }

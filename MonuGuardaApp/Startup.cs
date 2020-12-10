@@ -10,7 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using MonuGuardaApp.Data;
-
+using MonuGuardaApp.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace MonuGuardaApp
 {
@@ -31,6 +32,11 @@ namespace MonuGuardaApp
             services.AddDbContext<MonuGuardaAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MonuGuardaAppContext")));
 
+            services.AddDbContext<MonuGuardaDbContext>(options =>
+                   options.UseSqlServer(
+                       Configuration.GetConnectionString("MonuGuardaConnection")));
+
+            services.AddTransient<MonuGuardaRepositorio, EntityFrameworkRepository>();
 
         }
 

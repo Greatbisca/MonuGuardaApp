@@ -13,16 +13,36 @@ namespace MonuGuardaApp.Controllers
     public class VisitasGuiadasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
+        private MonuGuardaRepositorio repository;
 
-        public VisitasGuiadasController(MonuGuardaAppContext context)
+       /* public VisitasGuiadasController(MonuGuardaAppContext context)
         {
+            _context = context;
+        }*/
+
+        public VisitasGuiadasController(MonuGuardaRepositorio repository, MonuGuardaAppContext context)
+        {
+            this.repository = repository;
             _context = context;
         }
 
         // GET: VisitasGuiadas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await _context.Rotas.ToListAsync());
+            var pagination = new PagingInfo
+            {
+                CurrentPage = page,
+                PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
+                TotalItems = repository.VisitasGuiadas.Count()
+            };
+            return View(
+                new VisitasGuiadasListViewModel
+                {
+                    VisitasGuiadas = repository.VisitasGuiadas.OrderBy(p => p.VisitasGuiadasId)
+                        .Skip((page - 1) * pagination.PageSize).Take(pagination.PageSize),
+                    Pagination = pagination
+                }
+            );
         }
 
         // GET: VisitasGuiadas/Details/5
@@ -33,7 +53,7 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var visitasGuiadas = await _context.Rotas
+            var visitasGuiadas = await _context.VisitasGuiadas
                 .FirstOrDefaultAsync(m => m.VisitasGuiadasId == id);
             if (visitasGuiadas == null)
             {
@@ -73,7 +93,7 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var visitasGuiadas = await _context.Rotas.FindAsync(id);
+            var visitasGuiadas = await _context.VisitasGuiadas.FindAsync(id);
             if (visitasGuiadas == null)
             {
                 return NotFound();
@@ -124,7 +144,7 @@ namespace MonuGuardaApp.Controllers
                 return NotFound();
             }
 
-            var visitasGuiadas = await _context.Rotas
+            var visitasGuiadas = await _context.VisitasGuiadas
                 .FirstOrDefaultAsync(m => m.VisitasGuiadasId == id);
             if (visitasGuiadas == null)
             {
@@ -139,15 +159,15 @@ namespace MonuGuardaApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var visitasGuiadas = await _context.Rotas.FindAsync(id);
-            _context.Rotas.Remove(visitasGuiadas);
+            var visitasGuiadas = await _context.VisitasGuiadas.FindAsync(id);
+            _context.VisitasGuiadas.Remove(visitasGuiadas);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VisitasGuiadasExists(int id)
         {
-            return _context.Rotas.Any(e => e.VisitasGuiadasId == id);
+            return _context.VisitasGuiadas.Any(e => e.VisitasGuiadasId == id);
         }
     }
 }
