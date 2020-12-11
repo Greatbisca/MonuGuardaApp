@@ -9,6 +9,6 @@ namespace MonuGuardaApp.Models
     {
         public int GuiaId { get; set; }
         public string Nome { get; set; }
-        public int Telemovel { get; set; }
+        public string Telemovel { get; set; }
     }
 }

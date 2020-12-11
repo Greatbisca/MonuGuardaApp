@@ -12,6 +12,9 @@ namespace MonuGuardaApp.Controllers
 {
     public class GuiaController : Controller
     {
+        private MonuGuardaRepository repository;
+
+
         private readonly MonuGuardaAppContext _context;
 
         public GuiaController(MonuGuardaAppContext context)
@@ -19,9 +22,32 @@ namespace MonuGuardaApp.Controllers
             _context = context;
         }
 
-        // GET: Guias
-        public async Task<IActionResult> Index()
+        public GuiaController(MonuGuardaRepository repository)
         {
+            this.repository = repository;
+        }
+
+        // GET: Guias
+        public async Task<IActionResult> Index(int page = 1)
+        {
+            var pagination = new PagingGuia
+            {
+                CurrentPage = page,
+                PageSize = PagingGuia.DEFAULT_PAGE_SIZE,
+                TotalItems = repository.Guia.Count()
+            };
+
+            return View(
+                new GuiaListViewModel
+                {
+                    Guia = repository.Guia
+                        .OrderBy(p => p.Nome)
+                        .Skip((page - 1) * pagination.PageSize)
+                        .Take(pagination.PageSize),
+                    Pagination = pagination
+                }
+            );
+
             return View(await _context.Guia.ToListAsync());
         }
 
@@ -150,4 +176,6 @@ namespace MonuGuardaApp.Controllers
             return _context.Guia.Any(e => e.GuiaId == id);
         }
     }
+
+   
 }
