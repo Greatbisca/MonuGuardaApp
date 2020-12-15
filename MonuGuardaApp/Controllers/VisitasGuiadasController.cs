@@ -22,7 +22,8 @@ namespace MonuGuardaApp.Controllers
         // GET: VisitasGuiadas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.VisitasGuiadas.ToListAsync());
+            var monuGuardaAppContext = _context.VisitasGuiadas.Include(v => v.Guia).Include(v => v.PontosdeInteresse);
+            return View(await monuGuardaAppContext.ToListAsync());
         }
 
         // GET: VisitasGuiadas/Details/5
@@ -34,6 +35,8 @@ namespace MonuGuardaApp.Controllers
             }
 
             var visitasGuiadas = await _context.VisitasGuiadas
+                .Include(v => v.Guia)
+                .Include(v => v.PontosdeInteresse)
                 .FirstOrDefaultAsync(m => m.VisitasGuiadasId == id);
             if (visitasGuiadas == null)
             {
@@ -46,6 +49,8 @@ namespace MonuGuardaApp.Controllers
         // GET: VisitasGuiadas/Create
         public IActionResult Create()
         {
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome");
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome");
             return View();
         }
 
@@ -54,7 +59,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VisitasGuiadasId,GuiaId,Nome,LocalPartida,LocalChegada,DataVisita,Morada,Telemovel,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
+        public async Task<IActionResult> Create([Bind("VisitasGuiadasId,GuiaId,PontosdeInteresseId,Nome,LocalPartida,LocalChegada,DataVisita,Descricao,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +67,8 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", visitasGuiadas.PontosdeInteresseId);
             return View(visitasGuiadas);
         }
 
@@ -78,6 +85,8 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", visitasGuiadas.PontosdeInteresseId);
             return View(visitasGuiadas);
         }
 
@@ -86,7 +95,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VisitasGuiadasId,GuiaId,Nome,LocalPartida,LocalChegada,DataVisita,Morada,Telemovel,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
+        public async Task<IActionResult> Edit(int id, [Bind("VisitasGuiadasId,GuiaId,PontosdeInteresseId,Nome,LocalPartida,LocalChegada,DataVisita,Descricao,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
         {
             if (id != visitasGuiadas.VisitasGuiadasId)
             {
@@ -113,6 +122,8 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", visitasGuiadas.PontosdeInteresseId);
             return View(visitasGuiadas);
         }
 
@@ -125,6 +136,8 @@ namespace MonuGuardaApp.Controllers
             }
 
             var visitasGuiadas = await _context.VisitasGuiadas
+                .Include(v => v.Guia)
+                .Include(v => v.PontosdeInteresse)
                 .FirstOrDefaultAsync(m => m.VisitasGuiadasId == id);
             if (visitasGuiadas == null)
             {

@@ -10,8 +10,13 @@ namespace MonuGuardaApp.Models
     {
         public int VisitasGuiadasId { get; set; }
 
-        [Required(ErrorMessage = "É necessário colocar o seu Id")]
         public int GuiaId { get; set; }
+
+        public Guia Guia { get; set; }
+
+        public int PontosdeInteresseId { get; set; }
+
+        public PontosdeInteresse PontosdeInteresse { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar nome")]
         [StringLength(100)]
@@ -24,11 +29,10 @@ namespace MonuGuardaApp.Models
         public string LocalChegada { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar a data da visita guiada")]
-        public DateTimeOffset DataVisita { get; set; }
-        public string Morada { get; set; }
+        public DateTime DataVisita { get; set; }
 
-        [Required(ErrorMessage = "É necessário colocar número de telemóvel")]
-        public int Telemovel { get; set; }
+        [Required(ErrorMessage = "É necessário colocar descrição")]
+        public string Descricao { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar o número maxímo de pessoas")]
         public int NMaxPessoas { get; set; }

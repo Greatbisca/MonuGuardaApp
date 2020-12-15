@@ -4,69 +4,69 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 style="margin-top: 20px">Detalhes</h1>
+<h1>Details</h1>
 
 <div>
-    <h4>Visita Guiada</h4>
+    <h4>VisitasGuiadas</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            Id do guia
+            @Html.DisplayNameFor(model => model.Guia)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GuiaId)
+            @Html.DisplayFor(model => model.Guia.GuiaId)
         </dd>
         <dt class = "col-sm-2">
-            Nome
+            @Html.DisplayNameFor(model => model.PontosdeInteresse)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PontosdeInteresse.PontosdeInteresseId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt class = "col-sm-2">
-            Local de partida
+            @Html.DisplayNameFor(model => model.LocalPartida)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.LocalPartida)
         </dd>
         <dt class = "col-sm-2">
-            Local de chegada
+            @Html.DisplayNameFor(model => model.LocalChegada)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.LocalChegada)
         </dd>
         <dt class = "col-sm-2">
-            Data da visita guiada
+            @Html.DisplayNameFor(model => model.DataVisita)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DataVisita)
         </dd>
         <dt class = "col-sm-2">
-            Morada
+            @Html.DisplayNameFor(model => model.Descricao)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Morada)
+            @Html.DisplayFor(model => model.Descricao)
         </dd>
         <dt class = "col-sm-2">
-            Telemóvel
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telemovel)
-        </dd>
-        <dt class = "col-sm-2">
-            Número máximo de pessoas
+            @Html.DisplayNameFor(model => model.NMaxPessoas)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NMaxPessoas)
         </dd>
         <dt class = "col-sm-2">
-            Completo
+            @Html.DisplayNameFor(model => model.Completo)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Completo)
         </dd>
     </dl>
 </div>
-<div style="margin-bottom: 20px">
-    <a asp-action="Edit" asp-route-id="@Model.VisitasGuiadasId">Editar visita guiada</a> |
-    <a asp-action="Index">Voltar a lista</a>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VisitasGuiadasId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>

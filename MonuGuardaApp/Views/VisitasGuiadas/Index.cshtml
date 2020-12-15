@@ -4,83 +4,80 @@
     ViewData["Title"] = "Index";
 }
 
-<p style="margin-top: 20px">
-    <a asp-action="Create">Criar nova visita guiada</a>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
 </p>
-<h4>Veja aqui as Visitas Guiadas Disponíveis</h4>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Id do Guia
+                @Html.DisplayNameFor(model => model.Guia)
             </th>
             <th>
-                Nome
+                @Html.DisplayNameFor(model => model.PontosdeInteresse)
             </th>
             <th>
-                Local de partida
+                @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                Local de chegada
+                @Html.DisplayNameFor(model => model.LocalPartida)
             </th>
             <th>
-                Data da visita
+                @Html.DisplayNameFor(model => model.LocalChegada)
             </th>
             <th>
-                Morada
+                @Html.DisplayNameFor(model => model.DataVisita)
             </th>
             <th>
-                Telemóvel
+                @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
-                Número máximo de pessoas
+                @Html.DisplayNameFor(model => model.NMaxPessoas)
             </th>
             <th>
-                Completo
+                @Html.DisplayNameFor(model => model.Completo)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GuiaId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LocalPartida)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LocalChegada)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataVisita)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Morada)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telemovel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NMaxPessoas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Completo)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Apagar</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Guia.GuiaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontosdeInteresse.PontosdeInteresseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalChegada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataVisita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NMaxPessoas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
-<div class="col" style="margin-bottom: 20px">
-    <a class="btn btn-lg btn-secondary btn-block" href="/ReservaVisita/Create">Inscreve-te aqui</a>
-</div>
