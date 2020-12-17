@@ -4,69 +4,67 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>VisitasGuiadas</h4>
+    <h4 style="margin-top: 20px">Detalhes da visita guiada</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Guia)
+            Guia
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Guia.GuiaId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PontosdeInteresse)
+            Pontos de interesse
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PontosdeInteresse.PontosdeInteresseId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
+            Nome
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalPartida)
+            Local de partida
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.LocalPartida)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalChegada)
+            Local de chegada
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.LocalChegada)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataVisita)
+            Local da visita guiada
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DataVisita)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
+            Descrição
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Descricao)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NMaxPessoas)
+            Número máximo de pessoas
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NMaxPessoas)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Completo)
+            Completo
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Completo)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.VisitasGuiadasId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div style="margin-bottom: 20px">
+    <a asp-action="Edit" asp-route-id="@Model.VisitasGuiadasId">Editar</a> |
+    <a asp-action="Index">Voltar a lista</a>
 </div>

@@ -67,8 +67,8 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", visitasGuiadas.PontosdeInteresseId);
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome", visitasGuiadas.GuiaId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome", visitasGuiadas.PontosdeInteresseId);
             return View(visitasGuiadas);
         }
 
@@ -85,8 +85,8 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", visitasGuiadas.PontosdeInteresseId);
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome", visitasGuiadas.GuiaId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome", visitasGuiadas.PontosdeInteresseId);
             return View(visitasGuiadas);
         }
 
@@ -122,8 +122,8 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", visitasGuiadas.PontosdeInteresseId);
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome", visitasGuiadas.GuiaId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome", visitasGuiadas.PontosdeInteresseId);
             return View(visitasGuiadas);
         }
 

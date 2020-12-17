@@ -4,42 +4,40 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<p style="margin-top: 20px">
+    <a asp-action="Create">Criar nova visita guiada</a>
 </p>
+<p>Veja as visitas guiadas disponíveis aqui!!</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Guia)
+                Guia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PontosdeInteresse)
+                Pontos de interesse
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LocalPartida)
+                Local de partida
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LocalChegada)
+                Local de chegada
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataVisita)
+                Data da visita guiada
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+                Descrição
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NMaxPessoas)
+                Número máximo de pessoas
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Completo)
+                Completo
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -73,9 +71,9 @@
                 @Html.DisplayFor(modelItem => item.Completo)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Apagar</a>
             </td>
         </tr>
 }

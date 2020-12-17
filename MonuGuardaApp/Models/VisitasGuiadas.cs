@@ -34,7 +34,7 @@ namespace MonuGuardaApp.Models
         [Required(ErrorMessage = "É necessário colocar descrição")]
         public string Descricao { get; set; }
 
-        [Required(ErrorMessage = "É necessário colocar o número maxímo de pessoas")]
+        [Required(ErrorMessage = "É necessário colocar o número máximo de pessoas")]
         public int NMaxPessoas { get; set; }
         public bool Completo { get; set; }
     }
