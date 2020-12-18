@@ -9,8 +9,10 @@ namespace MonuGuardaApp.Models
     {
         public int ReservaVisitaId { get; set; }
         public int TuristaId { get; set; }
+        public Turista Turista { get; set; }
         public int VisitasGuiadasId { get; set; }
-        public DateTimeOffset DataReserva { get; set; }
+        public VisitasGuiadas VisitasGuiadas { get; set; }
+        public DateTime DataReserva { get; set; }
         public int NPessoas { get; set; }
     }
 }

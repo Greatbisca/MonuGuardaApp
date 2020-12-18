@@ -10,11 +10,11 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
-    public class ReservaVisitaController : Controller
+    public class ReservaVisitasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
 
-        public ReservaVisitaController(MonuGuardaAppContext context)
+        public ReservaVisitasController(MonuGuardaAppContext context)
         {
             _context = context;
         }
@@ -22,7 +22,8 @@ namespace MonuGuardaApp.Controllers
         // GET: ReservaVisitas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ReservaVisita.ToListAsync());
+            var monuGuardaAppContext = _context.ReservaVisita.Include(r => r.Turista).Include(r => r.VisitasGuiadas);
+            return View(await monuGuardaAppContext.ToListAsync());
         }
 
         // GET: ReservaVisitas/Details/5
@@ -34,6 +35,8 @@ namespace MonuGuardaApp.Controllers
             }
 
             var reservaVisita = await _context.ReservaVisita
+                .Include(r => r.Turista)
+                .Include(r => r.VisitasGuiadas)
                 .FirstOrDefaultAsync(m => m.ReservaVisitaId == id);
             if (reservaVisita == null)
             {
@@ -46,6 +49,8 @@ namespace MonuGuardaApp.Controllers
         // GET: ReservaVisitas/Create
         public IActionResult Create()
         {
+            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome");
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao");
             return View();
         }
 
@@ -62,6 +67,8 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome", reservaVisita.TuristaId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
 
@@ -78,6 +85,8 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome", reservaVisita.TuristaId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
 
@@ -113,6 +122,8 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome", reservaVisita.TuristaId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
 
@@ -125,6 +136,8 @@ namespace MonuGuardaApp.Controllers
             }
 
             var reservaVisita = await _context.ReservaVisita
+                .Include(r => r.Turista)
+                .Include(r => r.VisitasGuiadas)
                 .FirstOrDefaultAsync(m => m.ReservaVisitaId == id);
             if (reservaVisita == null)
             {
