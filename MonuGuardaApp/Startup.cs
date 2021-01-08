@@ -30,18 +30,39 @@ namespace MonuGuardaApp
             services.AddControllersWithViews();
 
             services.AddDbContext<MonuGuardaAppContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MonuGuardaAppContext")));
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("MonuGuardaAppContext")));
+            services.AddIdentity<IdentityUser, IdentityRole>(
+                options =>
+                {
+                    //Sign in
+                    options.SignIn.RequireConfirmedAccount = false;
 
-            /*services.AddDbContext<MonuGuardaDbContext>(options =>
+                    //Password
+                    options.Password.RequireDigit = true;
+                    options.Password.RequireLowercase = true;
+                    options.Password.RequiredLength = 5;
+                    options.Password.RequiredUniqueChars = 3;
+                    options.Password.RequireUppercase = true;
+
+                    // Lockout
+                    options.Lockout.AllowedForNewUsers = true;
+                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
+                    options.Lockout.MaxFailedAccessAttempts = 5;
+
+                }).AddEntityFrameworkStores<MonuGuardaAppContext>()
+                .AddDefaultUI();
+
+            services.AddDbContext<MonuGuardaAppContext>(options =>
                    options.UseSqlServer(
                        Configuration.GetConnectionString("MonuGuardaConnection")));
-
-            services.AddTransient<MonuGuardaRepositorio, EntityFrameworkRepository>();*/
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +87,14 @@ namespace MonuGuardaApp
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.SeedRolesAsync(roleManager).Wait();
+            SeedData.SeedDefaultAdminAsync(userManager).Wait(); //Criar o admin
+
+            if (env.IsDevelopment())
+            {
+                SeedData.SeedDevUserAsync(userManager).Wait();
+            }
         }
     }
 }

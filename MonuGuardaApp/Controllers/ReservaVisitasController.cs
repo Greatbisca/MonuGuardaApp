@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
+    [Authorize]
     public class ReservaVisitasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
@@ -19,12 +21,40 @@ namespace MonuGuardaApp.Controllers
             _context = context;
         }
 
+        public IActionResult Index(DateTime? dataInicio = null, DateTime? dataFim = null, int page = 1)
+        {
+            var pagination = new PagingInfo
+            {
+                CurrentPage = page,
+                PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
+                TotalItems = _context.ReservaVisita.Where(p => 
+                    (!dataInicio.HasValue || p.DataReserva >= dataInicio.Value) &&
+                    (!dataFim.HasValue || p.DataReserva <= dataFim.Value) 
+                ).Count()
+            };
+
+            return View(
+                new ReservaVisitasListViewModel
+                {
+                    ReservaVisitas = _context.ReservaVisita.Where(p =>
+                         (!dataInicio.HasValue || p.DataReserva >= dataInicio.Value) &&
+                         (!dataFim.HasValue || p.DataReserva <= dataFim.Value))
+                        .OrderBy(p => p.DataReserva)
+                        .Skip((page - 1) * pagination.PageSize)
+                        .Take(pagination.PageSize),
+                    Pagination = pagination,
+                    SearchDataInicio = dataInicio,
+                    SearchDataFim = dataFim
+                }
+            ) ;
+        }
+
         // GET: ReservaVisitas
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             var monuGuardaAppContext = _context.ReservaVisita.Include(r => r.Turista).Include(r => r.VisitasGuiadas);
             return View(await monuGuardaAppContext.ToListAsync());
-        }
+        }*/
 
         // GET: ReservaVisitas/Details/5
         public async Task<IActionResult> Details(int? id)

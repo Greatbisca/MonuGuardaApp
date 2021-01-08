@@ -1,5 +1,5 @@
-﻿@model IEnumerable<MonuGuardaApp.Models.ReservaVisita>
-
+﻿
+@model ReservaVisitasListViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -13,22 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Turista)
+                Turista
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VisitasGuiadas)
+                Visitas Guiadas
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataReserva)
+                Data Reserva
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NPessoas)
+                Numero de Pessoas
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.ReservaVisitas) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Turista.Nome)
@@ -51,3 +51,30 @@
 }
     </tbody>
 </table>
+<nav class="mt-3">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-data-inicio="@Model.SearchDataInicio" asp-route-data-fim="@Model.SearchDataFim">First</a></li>
+
+        @{
+            int initalPage = Model.Pagination.CurrentPage - PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (initalPage < 1) initalPage = 1;
+
+            int finalPage = Model.Pagination.CurrentPage + PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (finalPage > Model.Pagination.TotalPages) finalPage = Model.Pagination.TotalPages;
+        }
+
+        @for (int p = initalPage; p <= finalPage; p++)
+        {
+            if (p == Model.Pagination.CurrentPage)
+            {
+                <li class="page-item active"><a class="page-link" href="#">@p</a></li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@p" asp-route-data-inicio="@Model.SearchDataInicio" asp-route-data-fim="@Model.SearchDataFim">@p</a></li>
+            }
+        }
+
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-data-inicio="@Model.SearchDataInicio" asp-route-data-fim="@Model.SearchDataFim">Last</a></li>
+    </ul>
+</nav>
