@@ -14,17 +14,40 @@ namespace MonuGuardaApp.Controllers
     {
         private readonly MonuGuardaAppContext _context;
 
-        public VisitasGuiadasController(MonuGuardaAppContext context)
+        public VisitasGuiadasController(MonuGuardaAppContext _context)
         {
-            _context = context;
+           this._context = _context;
         }
 
+        public IActionResult Index(string name = null, int page = 1)
+        {
+            var pagination = new PagingInfo
+            {
+                CurrentPage = page,
+                PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
+                TotalItems = _context.VisitasGuiadas.Where(p => name == null || p.Nome.Contains(name)).Count()
+            };
+
+            return View(
+                new VisitasGuiadasListViewModel
+                {
+                    VisitasGuiadas = _context.VisitasGuiadas.Where(p => name == null || p.Nome.Contains(name))
+                        .OrderBy(p => p.Nome)
+                        .Skip((page - 1) * pagination.PageSize)
+                        .Take(pagination.PageSize),
+                    Pagination = pagination,
+                    SearchName = name
+                }
+            );
+        }
+
+
         // GET: VisitasGuiadas
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             var monuGuardaAppContext = _context.VisitasGuiadas.Include(v => v.Guia).Include(v => v.PontosdeInteresse);
             return View(await monuGuardaAppContext.ToListAsync());
-        }
+        }*/
 
         // GET: VisitasGuiadas/Details/5
         public async Task<IActionResult> Details(int? id)
