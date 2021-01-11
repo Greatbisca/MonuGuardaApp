@@ -88,13 +88,13 @@ namespace MonuGuardaApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            SeedData.SeedRolesAsync(roleManager).Wait();
+            /*SeedData.SeedRolesAsync(roleManager).Wait();
             SeedData.SeedDefaultAdminAsync(userManager).Wait(); //Criar o admin
 
             if (env.IsDevelopment())
             {
                 SeedData.SeedDevUserAsync(userManager).Wait();
-            }
+            }*/
         }
     }
 }

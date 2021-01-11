@@ -14,22 +14,18 @@ namespace MonuGuardaApp.Models
 
         public Guia Guia { get; set; }
 
-        public int PontosdeInteresseId { get; set; }
-
-        public PontosdeInteresse PontosdeInteresse { get; set; }
-
         [Required(ErrorMessage = "É necessário colocar nome")]
         [StringLength(100)]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar o local de partida")]
-        public string LocalPartida { get; set; }
+        public string LocaldePartida { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar o local de chegada")]
-        public string LocalChegada { get; set; }
+        public string LocaldeChegada { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar a data da visita guiada")]
-        public DateTime DataVisita { get; set; }
+        public DateTime DatadaVisita { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar descrição")]
         public string Descricao { get; set; }

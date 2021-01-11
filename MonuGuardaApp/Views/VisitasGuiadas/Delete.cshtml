@@ -4,69 +4,66 @@
     ViewData["Title"] = "Delete";
 }
 
-<h3 style="margin-top: 20px" >Tem a certeza que deseja apagar?</h3>
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
 <div>
-    <hr/>
+    <h4>VisitasGuiadas</h4>
+    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            Guia
+            @Html.DisplayNameFor(model => model.Guia)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Guia.GuiaId)
         </dd class>
         <dt class = "col-sm-2">
-            Pontos de interesse
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PontosdeInteresse.PontosdeInteresseId)
-        </dd class>
-        <dt class = "col-sm-2">
-            Nome
+            @Html.DisplayNameFor(model => model.Nome)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt class = "col-sm-2">
-            Local de partida
+            @Html.DisplayNameFor(model => model.LocaldePartida)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LocalPartida)
+            @Html.DisplayFor(model => model.LocaldePartida)
         </dd>
         <dt class = "col-sm-2">
-            Local de chegada
+            @Html.DisplayNameFor(model => model.LocaldeChegada)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LocalChegada)
+            @Html.DisplayFor(model => model.LocaldeChegada)
         </dd>
         <dt class = "col-sm-2">
-            Data da visita guiada
+            @Html.DisplayNameFor(model => model.DatadaVisita)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataVisita)
+            @Html.DisplayFor(model => model.DatadaVisita)
         </dd>
         <dt class = "col-sm-2">
-            Descrição
+            @Html.DisplayNameFor(model => model.Descricao)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Descricao)
         </dd>
         <dt class = "col-sm-2">
-            Numero máximo de pessoas
+            @Html.DisplayNameFor(model => model.NMaxPessoas)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NMaxPessoas)
         </dd>
         <dt class = "col-sm-2">
-            Completo
+            @Html.DisplayNameFor(model => model.Completo)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Completo)
         </dd>
     </dl>
     
-    <form asp-action="Delete" style="margin-bottom: 20px">
+    <form asp-action="Delete">
         <input type="hidden" asp-for="VisitasGuiadasId" />
-        <input type="submit" value="Apagar" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar a lista</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
     </form>
 </div>

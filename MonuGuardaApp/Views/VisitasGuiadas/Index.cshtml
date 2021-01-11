@@ -1,5 +1,4 @@
-﻿
-@model VisitasGuiadasListViewModel
+﻿@model VisitasGuiadasListViewModel
 
 @{
     ViewData["Title"] = "VisitasGuiadas";
@@ -14,9 +13,6 @@
         <tr>
             <th>
                 Guia
-            </th>
-            <th>
-                Pontos de interesse
             </th>
             <th>
                 Nome
@@ -49,19 +45,16 @@
                     @Html.DisplayFor(modelItem => item.Guia.GuiaId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PontosdeInteresse.PontosdeInteresseId)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LocalPartida)
+                    @Html.DisplayFor(modelItem => item.LocaldePartida)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LocalChegada)
+                    @Html.DisplayFor(modelItem => item.LocaldeChegada)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DataVisita)
+                    @Html.DisplayFor(modelItem => item.DatadaVisita)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Descricao)
@@ -81,8 +74,6 @@
         }
     </tbody>
 </table>
-
-
 <nav class="mt-3">
     <ul class="pagination">
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName">First</a></li>
