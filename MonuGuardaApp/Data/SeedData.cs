@@ -16,7 +16,7 @@ namespace MonuGuardaApp.Data
         private const string ROLE_TURIST = "Turista";
 
         internal static async Task SeedDefaultAdminAsync(UserManager<IdentityUser> userManager)
-        {
+         {
             await EnsureUserIsCreated(userManager, DEFAULT_ADMIN_PASSWORD, DEFAULT_ADMIN_USER, ROLE_ADMINISTRATOR);
         }
 
@@ -43,11 +43,11 @@ namespace MonuGuardaApp.Data
             await EnsureRoleIsCreated(roleManager, ROLE_TURIST);
         }
 
-        private static async Task EnsureRoleIsCreated(RoleManager<IdentityRole> roleManager, string ROLE_ADMINISTRATOR)
+        private static async Task EnsureRoleIsCreated(RoleManager<IdentityRole> roleManager, string role)
         {
-            if (!await roleManager.RoleExistsAsync("Admin"))  //verificar se foi criado o role se nao exitir é criado
+            if (!await roleManager.RoleExistsAsync(role))  //verificar se foi criado o role se nao exitir é criado
             {
-                await roleManager.CreateAsync(new IdentityRole(ROLE_ADMINISTRATOR));
+                await roleManager.CreateAsync(new IdentityRole(role));
             }
         }
 

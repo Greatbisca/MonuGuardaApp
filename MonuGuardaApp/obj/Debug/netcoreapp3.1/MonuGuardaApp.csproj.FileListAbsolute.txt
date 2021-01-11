@@ -628,3 +628,13 @@ C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netc
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Details.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Edit.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Index.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisitas\Create.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisitas\Delete.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisitas\Details.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisitas\Edit.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisitas\Index.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Create.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Delete.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Details.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Edit.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\PontosVisita\Index.cshtml.g.cs
