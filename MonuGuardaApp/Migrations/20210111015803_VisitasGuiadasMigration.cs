@@ -7,14 +7,14 @@ namespace MonuGuardaApp.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
+           /* migrationBuilder.DropForeignKey(
                 name: "FK_VisitasGuiadas_PontosdeInteresse_PontosdeInteresseId",
                 table: "VisitasGuiadas");
 
             migrationBuilder.DropIndex(
                 name: "IX_VisitasGuiadas_PontosdeInteresseId",
                 table: "VisitasGuiadas");
-
+           */
             migrationBuilder.DropColumn(
                 name: "DataVisita",
                 table: "VisitasGuiadas");
