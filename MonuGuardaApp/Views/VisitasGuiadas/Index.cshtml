@@ -18,12 +18,6 @@
                 Nome
             </th>
             <th>
-                Local de partida
-            </th>
-            <th>
-                Local de chegada
-            </th>
-            <th>
                 Data da visita guiada
             </th>
             <th>
@@ -48,12 +42,6 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LocaldePartida)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LocaldeChegada)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.DatadaVisita)
                 </td>
                 <td>
@@ -66,9 +54,9 @@
                     @Html.DisplayFor(modelItem => item.Completo)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Apagar</a>
+                    <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
                 </td>
             </tr>
         }
@@ -101,3 +89,4 @@
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">Last</a></li>
     </ul>
 </nav>
+

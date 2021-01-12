@@ -175,14 +175,6 @@ namespace MonuGuardaApp.Migrations
                     b.Property<int>("GuiaId")
                         .HasColumnType("int");
 
-                    b.Property<string>("LocaldeChegada")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocaldePartida")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("NMaxPessoas")
                         .HasColumnType("int");
 

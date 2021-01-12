@@ -18,6 +18,7 @@ namespace MonuGuardaApp.Controllers
         {
             this._context = _context;
         }
+
         public IActionResult Index(string name = null, int page = 1)
         {
             var pagination = new PagingInfo
@@ -78,7 +79,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VisitasGuiadasId,GuiaId,Nome,LocaldePartida,LocaldeChegada,DatadaVisita,Descricao,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
+        public async Task<IActionResult> Create([Bind("VisitasGuiadasId,GuiaId,Nome,DatadaVisita,Descricao,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +113,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VisitasGuiadasId,GuiaId,Nome,LocaldePartida,LocaldeChegada,DatadaVisita,Descricao,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
+        public async Task<IActionResult> Edit(int id, [Bind("VisitasGuiadasId,GuiaId,Nome,DatadaVisita,Descricao,NMaxPessoas,Completo")] VisitasGuiadas visitasGuiadas)
         {
             if (id != visitasGuiadas.VisitasGuiadasId)
             {

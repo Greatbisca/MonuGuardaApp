@@ -10,7 +10,7 @@ using MonuGuardaApp.Data;
 namespace MonuGuardaApp.Migrations
 {
     [DbContext(typeof(MonuGuardaAppContext))]
-    [Migration("20210111015803_VisitasGuiadasMigration")]
+    [Migration("20210112165600_VisitasGuiadasMigration")]
     partial class VisitasGuiadasMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,15 @@ namespace MonuGuardaApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("DataDeNascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Morada")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
@@ -37,6 +46,28 @@ namespace MonuGuardaApp.Migrations
                     b.HasKey("GuiaId");
 
                     b.ToTable("Guia");
+                });
+
+            modelBuilder.Entity("MonuGuardaApp.Models.PontosVisita", b =>
+                {
+                    b.Property<int>("PontosVisitaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PontosdeInteresseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VisitasGuiadasId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PontosVisitaId");
+
+                    b.HasIndex("PontosdeInteresseId");
+
+                    b.HasIndex("VisitasGuiadasId");
+
+                    b.ToTable("PontosVisita");
                 });
 
             modelBuilder.Entity("MonuGuardaApp.Models.PontosdeInteresse", b =>
@@ -146,14 +177,6 @@ namespace MonuGuardaApp.Migrations
                     b.Property<int>("GuiaId")
                         .HasColumnType("int");
 
-                    b.Property<string>("LocaldeChegada")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocaldePartida")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("NMaxPessoas")
                         .HasColumnType("int");
 
@@ -167,6 +190,21 @@ namespace MonuGuardaApp.Migrations
                     b.HasIndex("GuiaId");
 
                     b.ToTable("VisitasGuiadas");
+                });
+
+            modelBuilder.Entity("MonuGuardaApp.Models.PontosVisita", b =>
+                {
+                    b.HasOne("MonuGuardaApp.Models.PontosdeInteresse", "PontosdeInteresse")
+                        .WithMany()
+                        .HasForeignKey("PontosdeInteresseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MonuGuardaApp.Models.VisitasGuiadas", "VisitasGuiadas")
+                        .WithMany()
+                        .HasForeignKey("VisitasGuiadasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MonuGuardaApp.Models.ReservaVisita", b =>

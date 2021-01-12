@@ -18,12 +18,6 @@ namespace MonuGuardaApp.Models
         [StringLength(100)]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "É necessário colocar o local de partida")]
-        public string LocaldePartida { get; set; }
-
-        [Required(ErrorMessage = "É necessário colocar o local de chegada")]
-        public string LocaldeChegada { get; set; }
-
         [Required(ErrorMessage = "É necessário colocar a data da visita guiada")]
         public DateTime DatadaVisita { get; set; }
 
