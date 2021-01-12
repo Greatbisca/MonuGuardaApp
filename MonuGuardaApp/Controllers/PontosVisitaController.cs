@@ -59,7 +59,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PontosVisitaId,PontosdeInteresseId,VisitasGuiadasId")] PontosVisita pontosVisita)
+        public async Task<IActionResult> Create([Bind("PontosVisitaId,PontosdeInteresseId,VisitasGuiadasId,Ordem")] PontosVisita pontosVisita)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PontosVisitaId,PontosdeInteresseId,VisitasGuiadasId")] PontosVisita pontosVisita)
+        public async Task<IActionResult> Edit(int id, [Bind("PontosVisitaId,PontosdeInteresseId,VisitasGuiadasId,Ordem")] PontosVisita pontosVisita)
         {
             if (id != pontosVisita.PontosVisitaId)
             {

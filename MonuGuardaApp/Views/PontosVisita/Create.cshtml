@@ -21,6 +21,11 @@
                 <select asp-for="VisitasGuiadasId" class ="form-control" asp-items="ViewBag.VisitasGuiadasId"></select>
             </div>
             <div class="form-group">
+                <label asp-for="Ordem" class="control-label"></label>
+                <input asp-for="Ordem" class="form-control" />
+                <span asp-validation-for="Ordem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

@@ -53,6 +53,9 @@ namespace MonuGuardaApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Ordem")
+                        .HasColumnType("int");
+
                     b.Property<int>("PontosdeInteresseId")
                         .HasColumnType("int");
 

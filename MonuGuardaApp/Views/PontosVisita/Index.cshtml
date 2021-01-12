@@ -18,6 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.VisitasGuiadas)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ordem)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,6 +32,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.VisitasGuiadas.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordem)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PontosVisitaId">Edit</a> |
