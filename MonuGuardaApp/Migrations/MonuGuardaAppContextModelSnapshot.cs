@@ -81,16 +81,16 @@ namespace MonuGuardaApp.Migrations
                     b.Property<string>("Concelho")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EstatutoPatrimonial")
+                    b.Property<string>("Coordenadas")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Freguesia")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("Morada")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tipo")
+                    b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PontosdeInteresseId");

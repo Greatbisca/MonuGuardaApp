@@ -11,13 +11,13 @@ namespace MonuGuardaApp.Models
 
         public string Nome { get; set; }
 
-        public string Tipo { get; set; }
-
         public string Freguesia { get; set; }
 
         public string Concelho { get; set; }
 
-        public string EstatutoPatrimonial { get; set; }
+        public string Morada { get; set; }
+
+        public string Coordenadas { get; set; }
 
     }
 }

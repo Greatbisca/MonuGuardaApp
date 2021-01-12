@@ -16,16 +16,16 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Freguesia)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Concelho)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EstatutoPatrimonial)
+                @Html.DisplayNameFor(model => model.Morada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coordenadas)
             </th>
             <th></th>
         </tr>
@@ -37,16 +37,16 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Freguesia)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Concelho)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EstatutoPatrimonial)
+                @Html.DisplayFor(modelItem => item.Morada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coordenadas)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PontosdeInteresseId">Edit</a> |
