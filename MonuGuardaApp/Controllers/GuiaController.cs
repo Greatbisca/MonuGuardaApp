@@ -20,9 +20,26 @@ namespace MonuGuardaApp.Controllers
         }
 
         // GET: Guia
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string name = null, int page = 1)
         {
-            return View(await _context.Guia.ToListAsync());
+            var pagination = new PagingInfo
+            {
+                CurrentPage = page,
+                PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
+                TotalItems = _context.Guia.Where(p => name == null || p.Nome.Contains(name)).Count()
+            };
+
+            return View(
+                new GuiaListViewModel
+                {
+                    Guia = _context.Guia.Where(p => name == null || p.Nome.Contains(name))
+                        .OrderBy(p => p.Nome)
+                        .Skip((page - 1) * pagination.PageSize)
+                        .Take(pagination.PageSize),
+                    Pagination = pagination,
+                    SearchName = name
+                }
+            );
         }
 
         // GET: Guia/Details/5
