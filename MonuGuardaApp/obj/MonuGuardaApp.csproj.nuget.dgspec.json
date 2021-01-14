@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {}
+    "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {
+    "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
+        "projectUniqueName": "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
         "projectName": "MonuGuardaApp",
-        "projectPath": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
-        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asus\\Source\\Repos\\Greatbisca\\MonuGuardaApp\\MonuGuardaApp\\obj\\",
+        "projectPath": "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\MonuGuardaApp.csproj",
+        "packagesPath": "C:\\Users\\diogo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\diogo\\Documents\\GitHub\\MonuGuardaApp\\MonuGuardaApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,6 +41,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.9, )"
@@ -48,7 +55,7 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.10, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
@@ -83,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

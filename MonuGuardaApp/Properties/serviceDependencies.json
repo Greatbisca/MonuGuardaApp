@@ -2,6 +2,10 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
+      "connectionId": "DefaultConnection"
+    },
+    "mssql2": {
+      "type": "mssql",
       "connectionId": "MonuGuardaAppContext"
     }
   }

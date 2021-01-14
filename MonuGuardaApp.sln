@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonuGuardaApp", "MonuGuardaApp\MonuGuardaApp.csproj", "{A5CC2BB1-4E1F-46A4-89E1-66A2740B3F47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonuGuardaApp", "MonuGuardaApp\MonuGuardaApp.csproj", "{A6BCDDA2-9388-4FC6-8D7D-C226B02C8D7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A5CC2BB1-4E1F-46A4-89E1-66A2740B3F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5CC2BB1-4E1F-46A4-89E1-66A2740B3F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5CC2BB1-4E1F-46A4-89E1-66A2740B3F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5CC2BB1-4E1F-46A4-89E1-66A2740B3F47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6BCDDA2-9388-4FC6-8D7D-C226B02C8D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6BCDDA2-9388-4FC6-8D7D-C226B02C8D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6BCDDA2-9388-4FC6-8D7D-C226B02C8D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6BCDDA2-9388-4FC6-8D7D-C226B02C8D7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C444F59C-371E-46CC-9948-7B58945529BB}
+		SolutionGuid = {2141DBEF-D4E5-4F12-B574-6E9BA9EA880A}
 	EndGlobalSection
 EndGlobal

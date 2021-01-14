@@ -16,7 +16,7 @@ namespace MonuGuardaApp.Data
         private const string ROLE_TURIST = "Turista";
 
         internal static async Task SeedDefaultAdminAsync(UserManager<IdentityUser> userManager)
-         {
+        {
             await EnsureUserIsCreated(userManager, DEFAULT_ADMIN_PASSWORD, DEFAULT_ADMIN_USER, ROLE_ADMINISTRATOR);
         }
 
@@ -56,7 +56,5 @@ namespace MonuGuardaApp.Data
             await EnsureUserIsCreated(userManager, "guia@ipg.pt", "teste123$", ROLE_GUIDE);
             await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_TURIST);
         }
-
-       
     }
 }

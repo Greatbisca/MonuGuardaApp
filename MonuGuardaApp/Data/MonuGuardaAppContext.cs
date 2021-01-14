@@ -14,16 +14,16 @@ namespace MonuGuardaApp.Data
         {
         }
 
-        public DbSet<VisitasGuiadas> VisitasGuiadas { get; set; }
-
-        public DbSet<Turista> Turista { get; set; }
-
-        public DbSet<PontosdeInteresse> PontosdeInteresse { get; set; }
-
         public DbSet<MonuGuardaApp.Models.Guia> Guia { get; set; }
+
+        public DbSet<MonuGuardaApp.Models.PontosdeInteresse> PontosdeInteresse { get; set; }
+
+        public DbSet<MonuGuardaApp.Models.PontosVisita> PontosVisita { get; set; }
 
         public DbSet<MonuGuardaApp.Models.ReservaVisita> ReservaVisita { get; set; }
 
-        public DbSet<MonuGuardaApp.Models.PontosVisita> PontosVisita { get; set; }
+        public DbSet<MonuGuardaApp.Models.Turista> Turista { get; set; }
+
+        public DbSet<MonuGuardaApp.Models.VisitasGuiadas> VisitasGuiadas { get; set; }
     }
 }

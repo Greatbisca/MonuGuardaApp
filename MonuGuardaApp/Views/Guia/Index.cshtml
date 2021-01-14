@@ -22,7 +22,7 @@
                 Email
             </th>
             <th>
-                Data De Nascimento
+                DataDeNascimento
             </th>
             <th>
                 Morada
@@ -31,34 +31,32 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Guia)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telemovel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataDeNascimento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Morada)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.GuiaId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.GuiaId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.GuiaId">Delete</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model.Guia) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telemovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Morada)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GuiaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GuiaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GuiaId">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
-
 <nav class="mt-3">
     <ul class="pagination">
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName">First</a></li>
@@ -86,4 +84,3 @@
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">Last</a></li>
     </ul>
 </nav>
-

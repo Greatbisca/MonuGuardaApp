@@ -14,11 +14,12 @@ namespace MonuGuardaApp.Controllers
     {
         private readonly MonuGuardaAppContext _context;
 
-        public VisitasGuiadasController(MonuGuardaAppContext _context)
+        public VisitasGuiadasController(MonuGuardaAppContext context)
         {
-            this._context = _context;
+            _context = context;
         }
 
+        // GET: VisitasGuiadas
         public IActionResult Index(string name = null, int page = 1)
         {
             var pagination = new PagingInfo
@@ -40,13 +41,6 @@ namespace MonuGuardaApp.Controllers
                 }
             );
         }
-
-        // GET: VisitasGuiadas
-        /*public async Task<IActionResult> Index()
-        {
-            var monuGuardaAppContext = _context.VisitasGuiadas.Include(v => v.Guia);
-            return View(await monuGuardaAppContext.ToListAsync());
-        }*/
 
         // GET: VisitasGuiadas/Details/5
         public async Task<IActionResult> Details(int? id)

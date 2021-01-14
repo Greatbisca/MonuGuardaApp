@@ -13,5 +13,6 @@ namespace MonuGuardaApp.Models
         public int VisitasGuiadasId { get; set; }
         public VisitasGuiadas VisitasGuiadas { get; set; }
         public int Ordem { get; set; }
+
     }
 }

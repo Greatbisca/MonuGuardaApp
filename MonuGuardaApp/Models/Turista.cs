@@ -18,7 +18,5 @@ namespace MonuGuardaApp.Models
         public string Email { get; set; }
         public int Telemovel { get; set; }
         public DateTime DataNascimento { get; set; }
-
-
     }
 }

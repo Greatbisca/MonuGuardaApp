@@ -10,8 +10,8 @@ using MonuGuardaApp.Data;
 namespace MonuGuardaApp.Migrations
 {
     [DbContext(typeof(MonuGuardaAppContext))]
-    [Migration("20210111204537_GuiaMigration")]
-    partial class GuiaMigration
+    [Migration("20210113225634_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,6 +55,9 @@ namespace MonuGuardaApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Ordem")
+                        .HasColumnType("int");
+
                     b.Property<int>("PontosdeInteresseId")
                         .HasColumnType("int");
 
@@ -80,16 +83,16 @@ namespace MonuGuardaApp.Migrations
                     b.Property<string>("Concelho")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EstatutoPatrimonial")
+                    b.Property<string>("Coordenadas")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Freguesia")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("Morada")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tipo")
+                    b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PontosdeInteresseId");
@@ -176,14 +179,6 @@ namespace MonuGuardaApp.Migrations
 
                     b.Property<int>("GuiaId")
                         .HasColumnType("int");
-
-                    b.Property<string>("LocaldeChegada")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocaldePartida")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NMaxPessoas")
                         .HasColumnType("int");

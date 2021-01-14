@@ -1,13 +1,14 @@
 ﻿@model VisitasGuiadasListViewModel
 
 @{
-    ViewData["Title"] = "VisitasGuiadas";
+    ViewData["Title"] = "Index";
 }
 
-<p style="margin-top: 20px">
-    <a asp-action="Create">Criar nova visita guiada</a>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
 </p>
-<p>Veja as visitas guiadas disponíveis aqui!!</p>
 <table class="table">
     <thead>
         <tr>
@@ -18,48 +19,48 @@
                 Nome
             </th>
             <th>
-                Data da visita guiada
+                Data da Visita
             </th>
             <th>
-                Descrição
+                Descricao
             </th>
             <th>
-                Número máximo de pessoas
+                Numero Maximo de Pessoas
             </th>
             <th>
                 Completo
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.VisitasGuiadas)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Guia.GuiaId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DatadaVisita)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NMaxPessoas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Completo)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model.VisitasGuiadas) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Guia.GuiaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatadaVisita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NMaxPessoas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
 <nav class="mt-3">
@@ -89,4 +90,3 @@
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">Last</a></li>
     </ul>
 </nav>
-

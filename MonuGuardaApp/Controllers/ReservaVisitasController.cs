@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +10,6 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
-    [Authorize]
     public class ReservaVisitasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
@@ -21,15 +19,16 @@ namespace MonuGuardaApp.Controllers
             _context = context;
         }
 
+        // GET: ReservaVisitas
         public IActionResult Index(DateTime? dataInicio = null, DateTime? dataFim = null, int page = 1)
         {
             var pagination = new PagingInfo
             {
                 CurrentPage = page,
                 PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
-                TotalItems = _context.ReservaVisita.Where(p => 
+                TotalItems = _context.ReservaVisita.Where(p =>
                     (!dataInicio.HasValue || p.DataReserva >= dataInicio.Value) &&
-                    (!dataFim.HasValue || p.DataReserva <= dataFim.Value) 
+                    (!dataFim.HasValue || p.DataReserva <= dataFim.Value)
                 ).Count()
             };
 
@@ -46,15 +45,8 @@ namespace MonuGuardaApp.Controllers
                     SearchDataInicio = dataInicio,
                     SearchDataFim = dataFim
                 }
-            ) ;
+            );
         }
-
-        // GET: ReservaVisitas
-        /*public async Task<IActionResult> Index()
-        {
-            var monuGuardaAppContext = _context.ReservaVisita.Include(r => r.Turista).Include(r => r.VisitasGuiadas);
-            return View(await monuGuardaAppContext.ToListAsync());
-        }*/
 
         // GET: ReservaVisitas/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -79,8 +71,8 @@ namespace MonuGuardaApp.Controllers
         // GET: ReservaVisitas/Create
         public IActionResult Create()
         {
-            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome");
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao");
+            ViewData["TuristaId"] = new SelectList(_context.Set<Turista>(), "TuristaId", "Nome");
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao");
             return View();
         }
 
@@ -97,8 +89,8 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome", reservaVisita.TuristaId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
+            ViewData["TuristaId"] = new SelectList(_context.Set<Turista>(), "TuristaId", "Nome", reservaVisita.TuristaId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
 
@@ -115,8 +107,8 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome", reservaVisita.TuristaId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
+            ViewData["TuristaId"] = new SelectList(_context.Set<Turista>(), "TuristaId", "Nome", reservaVisita.TuristaId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
 
@@ -152,8 +144,8 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TuristaId"] = new SelectList(_context.Turista, "TuristaId", "Nome", reservaVisita.TuristaId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
+            ViewData["TuristaId"] = new SelectList(_context.Set<Turista>(), "TuristaId", "Nome", reservaVisita.TuristaId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
 

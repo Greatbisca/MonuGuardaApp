@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
+using MonuGuardaApp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using MonuGuardaApp.Data;
-using MonuGuardaApp.Models;
-using Microsoft.AspNetCore.Identity;
 
 namespace MonuGuardaApp
 {
@@ -27,36 +27,20 @@ namespace MonuGuardaApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-
-            services.AddDbContext<MonuGuardaAppContext>(options =>
-                    options.UseSqlServer(
-                        Configuration.GetConnectionString("MonuGuardaAppContext")));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>(
                 options =>
                 {
-                    //Sign in
                     options.SignIn.RequireConfirmedAccount = false;
 
-                    //Password
-                    options.Password.RequireDigit = true;
-                    options.Password.RequireLowercase = true;
-                    options.Password.RequiredLength = 5;
-                    options.Password.RequiredUniqueChars = 3;
-                    options.Password.RequireUppercase = true;
-
-                    // Lockout
-                    options.Lockout.AllowedForNewUsers = true;
-                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
-                    options.Lockout.MaxFailedAccessAttempts = 5;
-
-                }).AddEntityFrameworkStores<MonuGuardaAppContext>()
-                .AddDefaultUI();
+                }).AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.AddDbContext<MonuGuardaAppContext>(options =>
-                   options.UseSqlServer(
-                       Configuration.GetConnectionString("MonuGuardaConnection")));
-
+                    options.UseSqlServer(Configuration.GetConnectionString("MonuGuardaAppContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +51,7 @@ namespace MonuGuardaApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -79,6 +64,7 @@ namespace MonuGuardaApp
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -86,6 +72,7 @@ namespace MonuGuardaApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
 
             /*SeedData.SeedRolesAsync(roleManager).Wait();

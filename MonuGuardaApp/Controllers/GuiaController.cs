@@ -19,8 +19,8 @@ namespace MonuGuardaApp.Controllers
             _context = context;
         }
 
-        // GET: Guia
-        public IActionResult Index(string name = null, int page = 1)
+        // GET: Guias
+        public async Task<IActionResult> Index(string name = null, int page = 1)
         {
             var pagination = new PagingInfo
             {
@@ -42,7 +42,7 @@ namespace MonuGuardaApp.Controllers
             );
         }
 
-        // GET: Guia/Details/5
+        // GET: Guias/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -60,13 +60,13 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // GET: Guia/Create
+        // GET: Guias/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Guia/Create
+        // POST: Guias/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -82,7 +82,7 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // GET: Guia/Edit/5
+        // GET: Guias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -98,7 +98,7 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // POST: Guia/Edit/5
+        // POST: Guias/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -133,7 +133,7 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // GET: Guia/Delete/5
+        // GET: Guias/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -151,7 +151,7 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // POST: Guia/Delete/5
+        // POST: Guias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

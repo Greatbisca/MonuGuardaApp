@@ -9,7 +9,6 @@ namespace MonuGuardaApp.Models
     {
         public IEnumerable<VisitasGuiadas> VisitasGuiadas { get; set; }
         public PagingInfo Pagination { get; set; }
-
         public string SearchName { get; set; }
     }
 }
