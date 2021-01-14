@@ -4,11 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<p style="margin-top: 20px">
+    <a asp-action="Create">Criar nova visita guiada</a>
 </p>
+<p>Veja as visitas guiadas disponíveis aqui!!</p>
 <table class="table">
     <thead>
         <tr>
@@ -34,33 +33,34 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.VisitasGuiadas) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Guia.GuiaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatadaVisita)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NMaxPessoas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Completo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.VisitasGuiadas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Guia.GuiaId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatadaVisita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NMaxPessoas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Completo)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <nav class="mt-3">
