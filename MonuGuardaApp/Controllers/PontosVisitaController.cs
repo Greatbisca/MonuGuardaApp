@@ -19,14 +19,14 @@ namespace MonuGuardaApp.Controllers
             _context = context;
         }
 
-        // GET: PontosVisitas
+        // GET: PontosVisita
         public async Task<IActionResult> Index()
         {
             var monuGuardaAppContext = _context.PontosVisita.Include(p => p.PontosdeInteresse).Include(p => p.VisitasGuiadas);
             return View(await monuGuardaAppContext.ToListAsync());
         }
 
-        // GET: PontosVisitas/Details/5
+        // GET: PontosVisita/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,15 +46,15 @@ namespace MonuGuardaApp.Controllers
             return View(pontosVisita);
         }
 
-        // GET: PontosVisitas/Create
+        // GET: PontosVisita/Create
         public IActionResult Create()
         {
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId");
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao");
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho");
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao");
             return View();
         }
 
-        // POST: PontosVisitas/Create
+        // POST: PontosVisita/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,12 +67,12 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", pontosVisita.PontosdeInteresseId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho", pontosVisita.PontosdeInteresseId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
             return View(pontosVisita);
         }
 
-        // GET: PontosVisitas/Edit/5
+        // GET: PontosVisita/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,12 +85,12 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", pontosVisita.PontosdeInteresseId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho", pontosVisita.PontosdeInteresseId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
             return View(pontosVisita);
         }
 
-        // POST: PontosVisitas/Edit/5
+        // POST: PontosVisita/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -122,12 +122,12 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "PontosdeInteresseId", pontosVisita.PontosdeInteresseId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho", pontosVisita.PontosdeInteresseId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
             return View(pontosVisita);
         }
 
-        // GET: PontosVisitas/Delete/5
+        // GET: PontosVisita/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,7 +147,7 @@ namespace MonuGuardaApp.Controllers
             return View(pontosVisita);
         }
 
-        // POST: PontosVisitas/Delete/5
+        // POST: PontosVisita/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

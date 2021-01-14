@@ -19,13 +19,13 @@ namespace MonuGuardaApp.Controllers
             _context = context;
         }
 
-        // GET: PontosdeInteresses
+        // GET: PontosdeInteresse
         public async Task<IActionResult> Index()
         {
             return View(await _context.PontosdeInteresse.ToListAsync());
         }
 
-        // GET: PontosdeInteresses/Details/5
+        // GET: PontosdeInteresse/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,13 +43,13 @@ namespace MonuGuardaApp.Controllers
             return View(pontosdeInteresse);
         }
 
-        // GET: PontosdeInteresses/Create
+        // GET: PontosdeInteresse/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: PontosdeInteresses/Create
+        // POST: PontosdeInteresse/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -65,7 +65,7 @@ namespace MonuGuardaApp.Controllers
             return View(pontosdeInteresse);
         }
 
-        // GET: PontosdeInteresses/Edit/5
+        // GET: PontosdeInteresse/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,7 +81,7 @@ namespace MonuGuardaApp.Controllers
             return View(pontosdeInteresse);
         }
 
-        // POST: PontosdeInteresses/Edit/5
+        // POST: PontosdeInteresse/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -116,7 +116,7 @@ namespace MonuGuardaApp.Controllers
             return View(pontosdeInteresse);
         }
 
-        // GET: PontosdeInteresses/Delete/5
+        // GET: PontosdeInteresse/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +134,7 @@ namespace MonuGuardaApp.Controllers
             return View(pontosdeInteresse);
         }
 
-        // POST: PontosdeInteresses/Delete/5
+        // POST: PontosdeInteresse/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

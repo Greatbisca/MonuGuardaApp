@@ -1,0 +1,36 @@
+﻿@model MonuGuardaApp.Models.PontosVisita
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PontosVisita</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PontosdeInteresse)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PontosdeInteresse.Concelho)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VisitasGuiadas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VisitasGuiadas.Descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ordem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ordem)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PontosVisitaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

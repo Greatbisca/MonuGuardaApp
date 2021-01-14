@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +13,8 @@ namespace MonuGuardaApp.Models
         public PontosdeInteresse PontosdeInteresse { get; set; }
         public int VisitasGuiadasId { get; set; }
         public VisitasGuiadas VisitasGuiadas { get; set; }
+        [Required(ErrorMessage = "É necessário colocar a ordem")]
+        [StringLength(2)]
         public int Ordem { get; set; }
 
     }

@@ -20,7 +20,7 @@ namespace MonuGuardaApp.Controllers
         }
 
         // GET: Guias
-        public async Task<IActionResult> Index(string name = null, int page = 1)
+        public IActionResult Index(string name = null, int page = 1)
         {
             var pagination = new PagingInfo
             {
