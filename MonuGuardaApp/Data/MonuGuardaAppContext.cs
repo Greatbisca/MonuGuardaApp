@@ -14,6 +14,28 @@ namespace MonuGuardaApp.Data
         {
         }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ReservaVisita>()
+                .HasKey(bc => new { bc.TuristaId, bc.VisitasGuiadasId });
+
+            modelBuilder.Entity<ReservaVisita>()
+                .HasOne(bc => bc.Book)
+                .WithMany(b => b.BookCategories)
+                .HasForeignKey(bc => bc.BookId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<ReservaVisita>()
+                .HasOne(bc => bc.Category)
+                .WithMany(c => c.CategoryBooks)
+                .HasForeignKey(bc => bc.CategoryId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
         public DbSet<MonuGuardaApp.Models.Guia> Guia { get; set; }
 
         public DbSet<MonuGuardaApp.Models.PontosdeInteresse> PontosdeInteresse { get; set; }
