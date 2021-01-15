@@ -15,7 +15,7 @@ namespace MonuGuardaApp.Models
         public Guia Guia { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar nome")]
-        [StringLength(20)]
+        [StringLength(30)]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar a data da visita guiada")]

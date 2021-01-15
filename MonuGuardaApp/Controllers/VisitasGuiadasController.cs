@@ -64,7 +64,7 @@ namespace MonuGuardaApp.Controllers
         // GET: VisitasGuiadas/Create
         public IActionResult Create()
         {
-            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId");
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome");
             return View();
         }
 
@@ -81,7 +81,7 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome", visitasGuiadas.GuiaId);
             return View(visitasGuiadas);
         }
 
@@ -98,7 +98,7 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome", visitasGuiadas.GuiaId);
             return View(visitasGuiadas);
         }
 
@@ -134,7 +134,7 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "GuiaId", visitasGuiadas.GuiaId);
+            ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome", visitasGuiadas.GuiaId);
             return View(visitasGuiadas);
         }
 

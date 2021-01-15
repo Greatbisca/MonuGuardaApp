@@ -89,8 +89,8 @@ namespace MonuGuardaApp
                 endpoints.MapRazorPages();
             });
 
-            SeedData.SeedRolesAsync(roleManager).Wait();
-            SeedData.SeedDefaultAdminAsync(userManager).Wait();
+            //SeedData.SeedRolesAsync(roleManager).Wait();
+            //SeedData.SeedDefaultAdminAsync(userManager).Wait();
 
             /*if (env.IsDevelopment())
             {
