@@ -21,15 +21,15 @@ namespace MonuGuardaApp.Data
                 .HasKey(bc => new { bc.TuristaId, bc.VisitasGuiadasId });
 
             modelBuilder.Entity<ReservaVisita>()
-                .HasOne(bc => bc.Book)
-                .WithMany(b => b.BookCategories)
-                .HasForeignKey(bc => bc.BookId)
+                .HasOne(bc => bc.Turista)
+                .WithMany(b => b.ReservaVisitas)
+                .HasForeignKey(bc => bc.TuristaId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
             modelBuilder.Entity<ReservaVisita>()
-                .HasOne(bc => bc.Category)
-                .WithMany(c => c.CategoryBooks)
-                .HasForeignKey(bc => bc.CategoryId)
+                .HasOne(bc => bc.VisitasGuiadas)
+                .WithMany(c => c.ReservasVisita)
+                .HasForeignKey(bc => bc.VisitasGuiadasId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
             base.OnModelCreating(modelBuilder);

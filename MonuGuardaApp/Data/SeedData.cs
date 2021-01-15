@@ -11,6 +11,7 @@ namespace MonuGuardaApp.Data
         //Criação do Administrador e Roles
         private const string DEFAULT_ADMIN_USER = "admin@ipg.pt";
         private const string DEFAULT_ADMIN_PASSWORD = "Secret123$";
+
         private const string ROLE_ADMINISTRATOR = "Admin";
         private const string ROLE_GUIDE = "Guia";
         private const string ROLE_TURIST = "Turista";
@@ -51,10 +52,12 @@ namespace MonuGuardaApp.Data
             }
         }
 
-        internal static async Task SeedDevUserAsync(UserManager<IdentityUser> userManager)
+
+        /*internal static async Task<object> SeedDevUsersAsync(UserManager<IdentityUser> userManager)
         {
             await EnsureUserIsCreated(userManager, "guia@ipg.pt", "teste123$", ROLE_GUIDE);
             await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_TURIST);
-        }
+            await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_ADMINISTRATOR);
+        }*/
     }
 }

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace MonuGuardaApp
 {
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -30,12 +31,25 @@ namespace MonuGuardaApp
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>(
-                options =>
-                {
-                    options.SignIn.RequireConfirmedAccount = false;
 
-                }).AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+                // Sign in
+                options.SignIn.RequireConfirmedAccount = false;
+
+                // Password
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 6;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+
+                // Lockout
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 
@@ -75,12 +89,12 @@ namespace MonuGuardaApp
                 endpoints.MapRazorPages();
             });
 
-            /*SeedData.SeedRolesAsync(roleManager).Wait();
-            SeedData.SeedDefaultAdminAsync(userManager).Wait(); //Criar o admin
+            SeedData.SeedRolesAsync(roleManager).Wait();
+            SeedData.SeedDefaultAdminAsync(userManager).Wait();
 
-            if (env.IsDevelopment())
+            /*if (env.IsDevelopment())
             {
-                SeedData.SeedDevUserAsync(userManager).Wait();
+                SeedData.SeedDevUsersAsync().Wait();
             }*/
         }
     }

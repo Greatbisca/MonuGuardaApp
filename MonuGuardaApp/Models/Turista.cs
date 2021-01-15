@@ -15,8 +15,10 @@ namespace MonuGuardaApp.Models
         public string Nome { get; set; }
         public string Morada { get; set; }
         public int NIF { get; set; }
+        public string Password { get; set; }
         public string Email { get; set; }
         public int Telemovel { get; set; }
+        public ICollection<ReservaVisita> ReservaVisitas { get; set; }
         public DateTime DataNascimento { get; set; }
     }
 }

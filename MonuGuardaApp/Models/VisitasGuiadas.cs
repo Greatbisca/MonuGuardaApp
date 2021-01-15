@@ -28,5 +28,7 @@ namespace MonuGuardaApp.Models
         [Required(ErrorMessage = "É necessário colocar o número máximo de pessoas")]
         public int NMaxPessoas { get; set; }
         public bool Completo { get; set; }
+
+        public ICollection<ReservaVisita> ReservasVisita { get; set; }
     }
 }
