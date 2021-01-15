@@ -14,7 +14,6 @@ namespace MonuGuardaApp.Models
         [StringLength(20)]
         public string Nome { get; set; }
 
-        [StringLength(9)]
         public int Telemovel { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar o email")]
