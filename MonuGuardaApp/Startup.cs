@@ -59,6 +59,7 @@ namespace MonuGuardaApp
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            MonuGuardaAppContext db,
             UserManager<IdentityUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
@@ -89,13 +90,14 @@ namespace MonuGuardaApp
                 endpoints.MapRazorPages();
             });
 
-            //SeedData.SeedRolesAsync(roleManager).Wait();
-            //SeedData.SeedDefaultAdminAsync(userManager).Wait();
+            SeedData.SeedRolesAsync(roleManager).Wait();
+            SeedData.SeedDefaultAdminAsync(userManager).Wait();
 
-            /*if (env.IsDevelopment())
+
+            if (env.IsDevelopment())
             {
-                SeedData.SeedDevUsersAsync().Wait();
-            }*/
+                SeedData.SeedDevUsersAsync(userManager).Wait();
+            }
         }
     }
 }
