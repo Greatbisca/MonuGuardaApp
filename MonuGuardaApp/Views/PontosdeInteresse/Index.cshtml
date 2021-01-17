@@ -1,59 +1,86 @@
-﻿@model IEnumerable<MonuGuardaApp.Models.PontosdeInteresse>
+﻿@model PontosdeInteresseListViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "PontosdeInteresse";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<p style="margin-top: 20px">
+    <a asp-action="Create">Criar novo ponto de interesse</a>
 </p>
+<p>Pontos de interesse existentes:</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Freguesia)
+                Freguesia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Concelho)
+                Concelho
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Morada)
+                Morada
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Coordenadas)
+                Coordenadas
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Freguesia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Concelho)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Morada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Coordenadas)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PontosdeInteresseId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PontosdeInteresseId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PontosdeInteresseId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.PontosdeInteresse)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Freguesia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Concelho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Morada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Coordenadas)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PontosdeInteresseId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PontosdeInteresseId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PontosdeInteresseId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<nav class="mt-3">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName">First</a></li>
+
+        @{
+            int initalPage = Model.Pagination.CurrentPage - PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (initalPage < 1) initalPage = 1;
+
+            int finalPage = Model.Pagination.CurrentPage + PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (finalPage > Model.Pagination.TotalPages) finalPage = Model.Pagination.TotalPages;
+        }
+
+        @for (int p = initalPage; p <= finalPage; p++)
+        {
+            if (p == Model.Pagination.CurrentPage)
+            {
+                <li class="page-item active"><a class="page-link" href="#">@p</a></li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@p" asp-route-name="@Model.SearchName">@p</a></li>
+            }
+        }
+
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">Last</a></li>
+    </ul>
+</nav>
