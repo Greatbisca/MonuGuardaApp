@@ -11,15 +11,15 @@ namespace MonuGuardaApp.Models
         public int PontosdeInteresseId { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar nome")]
-        [StringLength(20)]
+        [StringLength(30)]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar freguesia")]
-        [StringLength(20)]
+        [StringLength(30)]
         public string Freguesia { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar concelho")]
-        [StringLength(20)]
+        [StringLength(30)]
         public string Concelho { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar morada")]

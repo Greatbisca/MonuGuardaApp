@@ -96,6 +96,11 @@ namespace MonuGuardaApp
 
             if (env.IsDevelopment())
             {
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var dbContext = serviceScope.ServiceProvider.GetService<MonuGuardaAppContext>();
+                    SeedData.Populate(dbContext);
+                }
                 SeedData.SeedDevUsersAsync(userManager).Wait();
             }
         }

@@ -49,8 +49,8 @@ namespace MonuGuardaApp.Controllers
         // GET: PontosVisita/Create
         public IActionResult Create()
         {
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho");
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao");
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome");
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Nome");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho", pontosVisita.PontosdeInteresseId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome", pontosVisita.PontosdeInteresseId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Nome", pontosVisita.VisitasGuiadasId);
             return View(pontosVisita);
         }
 
@@ -85,8 +85,8 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho", pontosVisita.PontosdeInteresseId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome", pontosVisita.PontosdeInteresseId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Nome", pontosVisita.VisitasGuiadasId);
             return View(pontosVisita);
         }
 
@@ -122,8 +122,8 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Concelho", pontosVisita.PontosdeInteresseId);
-            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Descricao", pontosVisita.VisitasGuiadasId);
+            ViewData["PontosdeInteresseId"] = new SelectList(_context.PontosdeInteresse, "PontosdeInteresseId", "Nome", pontosVisita.PontosdeInteresseId);
+            ViewData["VisitasGuiadasId"] = new SelectList(_context.VisitasGuiadas, "VisitasGuiadasId", "Nome", pontosVisita.VisitasGuiadasId);
             return View(pontosVisita);
         }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using MonuGuardaApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,47 @@ namespace MonuGuardaApp.Data
             await EnsureUserIsCreated(userManager, "guia@ipg.pt", "teste123$", ROLE_GUIDE);
             await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_TURIST);
             await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_ADMINISTRATOR);
+        }
+
+        internal static void Populate(MonuGuardaAppContext dbContext)
+        {
+            PopulateProducts(dbContext);
+        }
+        private static void PopulateProducts(MonuGuardaAppContext dbContext)
+        {
+            if (dbContext.PontosdeInteresse.Any())
+            {
+                return;
+            }
+
+            dbContext.PontosdeInteresse.AddRange(
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo do Sabugal",
+                    Freguesia = "Sabugal",
+                    Concelho = "Sabugal",
+                    Morada = "6320-409 Sabugal",
+                    Coordenadas = "40° 21′ 05″ N, 7° 05′ 39″ O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo da Guarda",
+                    Freguesia = "Guarda",
+                    Concelho = "Guarda",
+                    Morada = "6300-758 Guarda",
+                    Coordenadas = "40° 32.246' N 7° 16.296' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Sé-Catedral da Guarda",
+                    Freguesia = "Guarda",
+                    Concelho = "Guarda",
+                    Morada = "Praça Luís de Camões, 6300-714 Guarda",
+                    Coordenadas = "40° 32′ 18″ N, 7° 16′ 09″ O"
+                }
+            );
+
+            dbContext.SaveChanges();
         }
     }
 }
