@@ -59,7 +59,7 @@
 </table>
 <nav class="mt-3">
     <ul class="pagination">
-        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName">First</a></li>
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName"><<</a></li>
 
         @{
             int initalPage = Model.Pagination.CurrentPage - PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
@@ -81,6 +81,6 @@
             }
         }
 
-        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">Last</a></li>
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">>></a></li>
     </ul>
 </nav>

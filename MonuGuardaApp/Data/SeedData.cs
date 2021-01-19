@@ -96,6 +96,102 @@ namespace MonuGuardaApp.Data
                     Concelho = "Guarda",
                     Morada = "Praça Luís de Camões, 6300-714 Guarda",
                     Coordenadas = "40° 32′ 18″ N, 7° 16′ 09″ O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Linhares da Beira",
+                    Freguesia = "Linhares da Beira",
+                    Concelho = "Celorico da Beira",
+                    Morada = "6360-080",
+                    Coordenadas = "40° 32.483' N 7° 27.669' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Trancoso",
+                    Freguesia = "Santa Maria",
+                    Concelho = "Trancoso",
+                    Morada = "Trancoso",
+                    Coordenadas = "40° 46.746' N 7° 20.855' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Praça-forte de Almeida",
+                    Freguesia = "Almeida",
+                    Concelho = "Almeida",
+                    Morada = "Almeida, Guarda",
+                    Coordenadas = "40° 43.551' N 6° 54.350' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Folgosinho",
+                    Freguesia = "Folgosinho",
+                    Concelho = "Gouveia",
+                    Morada = "R. da Fonte dos Limos Verdes 13, 6290-081 Folgosinho",
+                    Coordenadas = "40°30'39.77 N 7°30'43.40 W"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Ponte do Escalhão",
+                    Freguesia = "Escalhão",
+                    Concelho = "Figueira de Castelo Rodrigo",
+                    Morada = "W3F6+R4 Figueira de Castelo Rodrigo",
+                    Coordenadas = "40°55'28.3″N 6°56'22.7″W"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Sortelha",
+                    Freguesia = "Sortelha",
+                    Concelho = "Sabugal",
+                    Morada = "R. do Encontro 2, 6320-530 Sortelha",
+                    Coordenadas = "40° 19.744' N 7° 13.014' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Numão",
+                    Freguesia = "Vila Nova de Foz Côa",
+                    Concelho = "Vila Nova de Foz Côa",
+                    Morada = "R. Direita, 5155-619",
+                    Coordenadas = "41° 06.033' N 7° 17.464' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Pinhel",
+                    Freguesia = "Pinhel",
+                    Concelho = "Pinhel",
+                    Morada = "R. do Castelo 4, 6400-340 Pinhel",
+                    Coordenadas = "40° 46′ 37″ N, 7° 03′ 43″ O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Castelo Rodrigo",
+                    Freguesia = "Castelo Rodrigo",
+                    Concelho = "Figueira de Castelo Rodrigo",
+                    Morada = "Largo do Pelourinho 1, 6440-031",
+                    Coordenadas = "40° 52′ 39″ N, 6° 57′ 51″ O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Longroiva",
+                    Freguesia = "Longroiva",
+                    Concelho = "Meda",
+                    Morada = "Longroiva, 6430 197",
+                    Coordenadas = "40° 57.829' N 7° 12.514' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Castelo de Marialva",
+                    Freguesia = "Meda",
+                    Concelho = "Meda",
+                    Morada = "6430-081",
+                    Coordenadas = "40° 54.815' N 7° 13.919' O"
+                },
+                new PontosdeInteresse
+                {
+                    Nome = "Convento de Santa Maria de Aguiar",
+                    Freguesia = "Castelo Rodrigo",
+                    Concelho = "Figueira de Castelo Rodrigo",
+                    Morada = "Castelo Rodrigo, Portugal",
+                    Coordenadas = "40° 52′ 52″ N, 6° 56′ 00″ O"
                 }
             );
 

@@ -10,7 +10,7 @@ using MonuGuardaApp.Data;
 namespace MonuGuardaApp.Migrations
 {
     [DbContext(typeof(MonuGuardaAppContext))]
-    [Migration("20210118194650_PontosdeInteresseMigration")]
+    [Migration("20210119113610_PontosdeInteresseMigration")]
     partial class PontosdeInteresseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,8 +87,8 @@ namespace MonuGuardaApp.Migrations
 
                     b.Property<string>("Concelho")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.Property<string>("Coordenadas")
                         .IsRequired()
@@ -97,8 +97,8 @@ namespace MonuGuardaApp.Migrations
 
                     b.Property<string>("Freguesia")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.Property<string>("Morada")
                         .IsRequired()
@@ -107,8 +107,8 @@ namespace MonuGuardaApp.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.HasKey("PontosdeInteresseId");
 

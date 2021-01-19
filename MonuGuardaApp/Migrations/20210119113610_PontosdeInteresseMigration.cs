@@ -9,29 +9,29 @@ namespace MonuGuardaApp.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Nome",
                 table: "PontosdeInteresse",
-                maxLength: 30,
+                maxLength: 40,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(20)",
-                oldMaxLength: 20);
+                oldType: "nvarchar(30)",
+                oldMaxLength: 30);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Freguesia",
                 table: "PontosdeInteresse",
-                maxLength: 30,
+                maxLength: 40,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(20)",
-                oldMaxLength: 20);
+                oldType: "nvarchar(30)",
+                oldMaxLength: 30);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Concelho",
                 table: "PontosdeInteresse",
-                maxLength: 30,
+                maxLength: 40,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(20)",
-                oldMaxLength: 20);
+                oldType: "nvarchar(30)",
+                oldMaxLength: 30);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -39,29 +39,29 @@ namespace MonuGuardaApp.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Nome",
                 table: "PontosdeInteresse",
-                type: "nvarchar(20)",
-                maxLength: 20,
+                type: "nvarchar(30)",
+                maxLength: 30,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldMaxLength: 30);
+                oldMaxLength: 40);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Freguesia",
                 table: "PontosdeInteresse",
-                type: "nvarchar(20)",
-                maxLength: 20,
+                type: "nvarchar(30)",
+                maxLength: 30,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldMaxLength: 30);
+                oldMaxLength: 40);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Concelho",
                 table: "PontosdeInteresse",
-                type: "nvarchar(20)",
-                maxLength: 20,
+                type: "nvarchar(30)",
+                maxLength: 30,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldMaxLength: 30);
+                oldMaxLength: 40);
         }
     }
 }

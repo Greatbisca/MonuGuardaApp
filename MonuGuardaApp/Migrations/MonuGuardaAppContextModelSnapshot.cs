@@ -85,8 +85,8 @@ namespace MonuGuardaApp.Migrations
 
                     b.Property<string>("Concelho")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.Property<string>("Coordenadas")
                         .IsRequired()
@@ -95,8 +95,8 @@ namespace MonuGuardaApp.Migrations
 
                     b.Property<string>("Freguesia")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.Property<string>("Morada")
                         .IsRequired()
@@ -105,8 +105,8 @@ namespace MonuGuardaApp.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.HasKey("PontosdeInteresseId");
 
