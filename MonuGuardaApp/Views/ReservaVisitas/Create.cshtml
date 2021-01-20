@@ -4,29 +4,28 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Bem - Vindo</h1>
 
-<h4>ReservaVisita</h4>
 <hr />
-<div class="row">
+<div class="carousel-item active" style="background-image: url('https://beira.pt/wp-content/uploads/2020/02/galo-guarda.jpg')">
+    <div class="carousel-caption d-none d-md-block">
+        <h3>Bem-Vindo</h3>
+    </div>
+</div>
+<div class="row" style="margin-top:50px">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TuristaId" class="control-label"></label>
-                <select asp-for="TuristaId" class ="form-control" asp-items="ViewBag.TuristaId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="VisitasGuiadasId" class="control-label"></label>
+                <label asp-for="VisitasGuiadasId" class="control-label">Selecione uma Visita Guiada</label>
                 <select asp-for="VisitasGuiadasId" class ="form-control" asp-items="ViewBag.VisitasGuiadasId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="DataReserva" class="control-label"></label>
+                <label asp-for="DataReserva" class="control-label"> Data Da Reserva</label>
                 <input asp-for="DataReserva" class="form-control" />
                 <span asp-validation-for="DataReserva" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NPessoas" class="control-label"></label>
+                <label asp-for="NPessoas" class="control-label"> Número de Pessoas </label>
                 <input asp-for="NPessoas" class="form-control" />
                 <span asp-validation-for="NPessoas" class="text-danger"></span>
             </div>
