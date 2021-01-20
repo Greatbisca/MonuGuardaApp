@@ -26,13 +26,14 @@ namespace MonuGuardaApp.Controllers
             {
                 CurrentPage = page,
                 PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
-                TotalItems = _context.VisitasGuiadas.Where(p => name == null || p.Nome.Contains(name)).Count()
+                TotalItems = _context.VisitasGuiadas.Where(p => name == null || p.Guia.Nome.Contains(name) || p.Nome.Contains(name)).Count()
             };
 
             return View(
                 new VisitasGuiadasListViewModel
                 {
-                    VisitasGuiadas = _context.VisitasGuiadas.Where(p => name == null || p.Nome.Contains(name))
+                    VisitasGuiadas = _context.VisitasGuiadas.Where(p => name == null || p.Guia.Nome.Contains(name) || p.Nome.Contains(name))
+                        .OrderBy(p => p.Guia.Nome)
                         .OrderBy(p => p.Nome)
                         .Skip((page - 1) * pagination.PageSize)
                         .Take(pagination.PageSize),
