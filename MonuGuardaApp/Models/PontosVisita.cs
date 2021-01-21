@@ -14,7 +14,6 @@ namespace MonuGuardaApp.Models
         public int VisitasGuiadasId { get; set; }
         public VisitasGuiadas VisitasGuiadas { get; set; }
         [Required(ErrorMessage = "É necessário colocar a ordem")]
-        [StringLength(2)]
         public int Ordem { get; set; }
 
     }

@@ -20,61 +20,29 @@
         </form>
     </div>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Guia
-            </th>
-            <th>
-                Nome
-            </th>
-            <th>
-                Data da visita
-            </th>
-            <th>
-                Descrição
-            </th>
-            <th>
-                Numero máximo de pessoas
-            </th>
-            <th>
-                Completo
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.VisitasGuiadas)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Guia.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DatadaVisita)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NMaxPessoas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Completo)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.VisitasGuiadasId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.VisitasGuiadasId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.VisitasGuiadasId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@foreach (var p in Model.VisitasGuiadas)
+{
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="card-title font-weight-bold">@p.Nome</div>
+        </div>
+        <div class="card-body">
+            @p.Descricao
+            <hr />
+            <div>
+                Data e hora: @p.DatadaVisita
+            </div>
+            <div>
+                Máximo de Pessoas: @p.NMaxPessoas
+                <p style="text-align:right">
+                    <a asp-action="Edit" asp-route-id="@p.VisitasGuiadasId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@p.VisitasGuiadasId">Ver mais</a> |
+                    <a asp-action="Delete" asp-route-id="@p.VisitasGuiadasId">Apagar</a>
+                </p>
+            </div>
+        </div>
+    </div>
+}
 <nav class="mt-3">
     <ul class="pagination">
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName"><<</a></li>
