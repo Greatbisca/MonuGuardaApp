@@ -21,48 +21,37 @@
         </form>
     </div>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Turista
-            </th>
-            <th>
-                Visitas Guiadas
-            </th>
-            <th>
-                Data Reserva
-            </th>
-            <th>
-                Numero de Pessoas
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
 @foreach (var item in Model.ReservaVisitas) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Turista.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VisitasGuiadas.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataReserva)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NPessoas)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ReservaVisitaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReservaVisitaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ReservaVisitaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+       
+                    <div class="col-lg-4 col-sm-6 portfolio-item">
+                        <div class="card h-100">
+                            <a href="#"></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    @Html.DisplayFor(modelItem => item.Turista.Nome)
+                                </h4>
+                                <p class="card-text">
+                                <p>
+                                    Descrição:
+                                    @Html.DisplayFor(modelItem => item.VisitasGuiadas.Descricao)
+                                </p>
+                                <p>
+                                    Data da Reserva:
+                                    @Html.DisplayFor(modelItem => item.DataReserva)
+                                </p>
+                                <p>
+                                    Numero De Pessoas:
+                                    @Html.DisplayFor(modelItem => item.NPessoas)
+                                </p>
+                                <a asp-action="Edit" asp-route-id="@item.ReservaVisitaId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.ReservaVisitaId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ReservaVisitaId">Delete</a>
+                            </div>
+                        </div>
+                    </div>      
+ }
+
 <nav class="mt-3">
     <ul class="pagination">
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-data-inicio="@Model.SearchDataInicio" asp-route-data-fim="@Model.SearchDataFim">First</a></li>
