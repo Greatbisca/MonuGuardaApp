@@ -89,7 +89,6 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TuristaId"] = new SelectList(_context.Set<Turista>(), "TuristaId", "Nome", reservaVisita.TuristaId);
             ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Nome", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
@@ -107,7 +106,6 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["TuristaId"] = new SelectList(_context.Set<Turista>(), "TuristaId", "Nome", reservaVisita.TuristaId);
             ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Nome", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
@@ -144,7 +142,6 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TuristaId"] = new SelectList(_context.Set<Turista>(), "TuristaId", "Nome", reservaVisita.TuristaId);
             ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Nome", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }

@@ -8,7 +8,6 @@ namespace MonuGuardaApp.Models
     public class ReservaVisita
     {
         public int ReservaVisitaId { get; set; }
-        public int TuristaId { get; set; }
         public Turista Turista { get; set; }
         public int VisitasGuiadasId { get; set; }
         public VisitasGuiadas VisitasGuiadas { get; set; }
