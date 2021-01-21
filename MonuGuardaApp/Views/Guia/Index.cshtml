@@ -4,24 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Guias</h1>
-<p>Consulte a nossa lista de guias aqui!</p>
-
-<p>
-    <a asp-action="Create">Criar Novo Guia</a>
-</p>
-<div class="card mt-3 bg-info">
-    <div class="card-body">
-        <form asp-action="Index" method="get">
-            <input name="name" type="search" class="form-control" value="@Model.SearchName" />
-            <input name="page" type="hidden" value="1" />
-            <div class="mt-3">
-                <input type="submit" value="Procurar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Apagar</a>
-            </div>
-        </form>
+<h1 style="text-align:center;">Guias</h1>
+<div class="carousel-item active" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/c6/8a/b8/vista-da-se-do-alto-do.jpg?w=1000&h=600&s=1') ">
+    <div class="carousel-caption d-none d-md-block">
+        <h1>Bem-Vindo</h1>
+        <h3>Consulte aqui a nossa lista de guias para visitar a cidade!</h3>
     </div>
 </div>
+
+<div class="card-body">
+    <form asp-action="Index" method="get">
+        <input name="name" type="search" class="form-control" value="@Model.SearchName" />
+        <input name="page" type="hidden" value="1" />
+        <div class="mt-3">
+            <input type="submit" value="Procurar" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-secondary">Apagar</a>
+        </div>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -44,32 +45,38 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Guia) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telemovel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataDeNascimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Morada)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.GuiaId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.GuiaId">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.GuiaId">Apagar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Guia)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telemovel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDeNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Morada)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.GuiaId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.GuiaId">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.GuiaId">Apagar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<p>
+    <a asp-action="Create">Criar Novo Guia</a>
+</p>
+
 <nav class="mt-3">
     <ul class="pagination">
         <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName">Primaira</a></li>
