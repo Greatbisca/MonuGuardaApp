@@ -18,10 +18,5 @@ namespace MonuGuardaApp.Models
 
         [Required(ErrorMessage = "É necessário colocar o email")]
         public string Email { get; set; }
-
-        public DateTime DataDeNascimento { get; set; }
-
-        [Required(ErrorMessage = "É necessário colocar a morada")]
-        public string Morada { get; set; }
     }
 }

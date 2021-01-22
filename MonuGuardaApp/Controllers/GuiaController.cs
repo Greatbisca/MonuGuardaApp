@@ -19,7 +19,7 @@ namespace MonuGuardaApp.Controllers
             _context = context;
         }
 
-        // GET: Guias
+        // GET: Guia
         public IActionResult Index(string name = null, int page = 1)
         {
             var pagination = new PagingInfo
@@ -42,7 +42,7 @@ namespace MonuGuardaApp.Controllers
             );
         }
 
-        // GET: Guias/Details/5
+        // GET: Guia/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -60,18 +60,18 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // GET: Guias/Create
+        // GET: Guia/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Guias/Create
+        // POST: Guia/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GuiaId,Nome,Telemovel,Email,DataDeNascimento,Morada")] Guia guia)
+        public async Task<IActionResult> Create([Bind("GuiaId,Nome,Telemovel,Email")] Guia guia)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // GET: Guias/Edit/5
+        // GET: Guia/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -98,12 +98,12 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // POST: Guias/Edit/5
+        // POST: Guia/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GuiaId,Nome,Telemovel,Email,DataDeNascimento,Morada")] Guia guia)
+        public async Task<IActionResult> Edit(int id, [Bind("GuiaId,Nome,Telemovel,Email")] Guia guia)
         {
             if (id != guia.GuiaId)
             {
@@ -133,7 +133,7 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // GET: Guias/Delete/5
+        // GET: Guia/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -151,7 +151,7 @@ namespace MonuGuardaApp.Controllers
             return View(guia);
         }
 
-        // POST: Guias/Delete/5
+        // POST: Guia/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
