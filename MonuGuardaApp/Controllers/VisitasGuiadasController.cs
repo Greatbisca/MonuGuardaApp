@@ -28,7 +28,7 @@ namespace MonuGuardaApp.Controllers
                 PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
                 TotalItems = _context.VisitasGuiadas.Where(p => name == null || p.Guia.Nome.Contains(name) || p.Nome.Contains(name)).Count()
             };
-
+            var monuGuardaAppContext = _context.VisitasGuiadas.Include(p => p.Guia);
             return View(
                 new VisitasGuiadasListViewModel
                 {
@@ -36,11 +36,11 @@ namespace MonuGuardaApp.Controllers
                         .OrderBy(p => p.Guia.Nome)
                         .OrderBy(p => p.Nome)
                         .Skip((page - 1) * pagination.PageSize)
-                        .Take(pagination.PageSize),
+                        .Take(pagination.PageSize).Include(p => p.Guia),
                     Pagination = pagination,
                     SearchName = name
                 }
-            );
+            ) ;
         }
 
         // GET: VisitasGuiadas/Details/5
