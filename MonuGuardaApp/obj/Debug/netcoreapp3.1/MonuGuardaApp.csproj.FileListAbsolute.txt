@@ -368,9 +368,6 @@ C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.csprojAssemblyReference.cache
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.AssemblyInfoInputs.cache
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.AssemblyInfo.cs
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.csproj.CoreCompileInputs.cache
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.RazorAssemblyInfo.cache
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.RazorAssemblyInfo.cs
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.TagHelpers.input.cache
@@ -982,3 +979,6 @@ C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp
 C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.csproj.CoreCompileInputs.cache
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.MvcApplicationPartsAssemblyInfo.cache

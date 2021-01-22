@@ -31,7 +31,7 @@ namespace MonuGuardaApp.Controllers
                     (!dataFim.HasValue || p.DataReserva <= dataFim.Value)
                 ).Count()
             };
-
+            var monuGuardaAppContext = _context.ReservaVisita.Include(p => p.VisitasGuiadas).Include(p => p.Turista);
             return View(
                 new ReservaVisitasListViewModel
                 {
@@ -40,11 +40,11 @@ namespace MonuGuardaApp.Controllers
                          (!dataFim.HasValue || p.DataReserva <= dataFim.Value))
                         .OrderBy(p => p.DataReserva)
                         .Skip((page - 1) * pagination.PageSize)
-                        .Take(pagination.PageSize),
+                        .Take(pagination.PageSize).Include(p => p.VisitasGuiadas).Include(p => p.Turista),
                     Pagination = pagination,
                     SearchDataInicio = dataInicio,
                     SearchDataFim = dataFim
-                }
+            }
             );
         }
 
