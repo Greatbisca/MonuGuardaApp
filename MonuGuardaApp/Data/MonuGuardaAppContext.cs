@@ -47,5 +47,9 @@ namespace MonuGuardaApp.Data
         public DbSet<MonuGuardaApp.Models.Turista> Turista { get; set; }
 
         public DbSet<MonuGuardaApp.Models.VisitasGuiadas> VisitasGuiadas { get; set; }
+
+        public DbSet<MonuGuardaApp.Models.Freguesia> Freguesia { get; set; }
+
+        public DbSet<MonuGuardaApp.Models.Concelho> Concelho { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model PontosdeInteresseListViewModel
 
 @{
-    ViewData["Title"] = "PontosdeInteresse";
+    ViewData["Title"] = "Index";
 }
 
 <p style="margin-top: 20px">
@@ -14,6 +14,7 @@
             <th>Nome</th>
             <th>Concelho</th>
             <th>Morada</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -21,8 +22,13 @@
         {
         <tr>
             <td>@p.Nome</td>
-            <td>@p.Concelho</td>
+            <td>@p.Concelho.Nome</td>
             <td>@p.Morada</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@p.PontosdeInteresseId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@p.PontosdeInteresseId">Ver mais</a> |
+                <a asp-action="Delete" asp-route-id="@p.PontosdeInteresseId">Apagar</a>
+            </td>
         </tr>
         }
     </tbody>

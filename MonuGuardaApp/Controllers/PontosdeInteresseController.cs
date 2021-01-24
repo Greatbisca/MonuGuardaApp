@@ -28,14 +28,14 @@ namespace MonuGuardaApp.Controllers
                 PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
                 TotalItems = _context.PontosdeInteresse.Where(p => name == null || p.Nome.Contains(name)).Count()
             };
-
+            var monuGuardaAppContext = _context.PontosdeInteresse.Include(p => p.Concelho);
             return View(
                 new PontosdeInteresseListViewModel
                 {
                     PontosdeInteresse = _context.PontosdeInteresse.Where(p => name == null || p.Nome.Contains(name))
                         .OrderBy(p => p.Nome)
                         .Skip((page - 1) * pagination.PageSize)
-                        .Take(pagination.PageSize),
+                        .Take(pagination.PageSize).Include(p => p.Concelho),
                     Pagination = pagination,
                     SearchName = name
                 }
@@ -51,6 +51,8 @@ namespace MonuGuardaApp.Controllers
             }
 
             var pontosdeInteresse = await _context.PontosdeInteresse
+                .Include(p => p.Concelho)
+                .Include(p => p.Freguesia)
                 .FirstOrDefaultAsync(m => m.PontosdeInteresseId == id);
             if (pontosdeInteresse == null)
             {
@@ -63,6 +65,8 @@ namespace MonuGuardaApp.Controllers
         // GET: PontosdeInteresse/Create
         public IActionResult Create()
         {
+            ViewData["ConcelhoId"] = new SelectList(_context.Concelho, "ConcelhoId", "Nome");
+            ViewData["FreguesiaId"] = new SelectList(_context.Freguesia, "FreguesiaId", "Nome");
             return View();
         }
 
@@ -71,7 +75,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PontosdeInteresseId,Nome,Freguesia,Concelho,Morada,Coordenadas")] PontosdeInteresse pontosdeInteresse)
+        public async Task<IActionResult> Create([Bind("PontosdeInteresseId,Nome,FreguesiaId,ConcelhoId,Morada,Coordenadas")] PontosdeInteresse pontosdeInteresse)
         {
             if (ModelState.IsValid)
             {
@@ -79,6 +83,8 @@ namespace MonuGuardaApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ConcelhoId"] = new SelectList(_context.Concelho, "ConcelhoId", "Nome", pontosdeInteresse.ConcelhoId);
+            ViewData["FreguesiaId"] = new SelectList(_context.Freguesia, "FreguesiaId", "Nome", pontosdeInteresse.FreguesiaId);
             return View(pontosdeInteresse);
         }
 
@@ -95,6 +101,8 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["ConcelhoId"] = new SelectList(_context.Concelho, "ConcelhoId", "Nome", pontosdeInteresse.ConcelhoId);
+            ViewData["FreguesiaId"] = new SelectList(_context.Freguesia, "FreguesiaId", "Nome", pontosdeInteresse.FreguesiaId);
             return View(pontosdeInteresse);
         }
 
@@ -103,7 +111,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PontosdeInteresseId,Nome,Freguesia,Concelho,Morada,Coordenadas")] PontosdeInteresse pontosdeInteresse)
+        public async Task<IActionResult> Edit(int id, [Bind("PontosdeInteresseId,Nome,FreguesiaId,ConcelhoId,Morada,Coordenadas")] PontosdeInteresse pontosdeInteresse)
         {
             if (id != pontosdeInteresse.PontosdeInteresseId)
             {
@@ -130,6 +138,8 @@ namespace MonuGuardaApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ConcelhoId"] = new SelectList(_context.Concelho, "ConcelhoId", "Nome", pontosdeInteresse.ConcelhoId);
+            ViewData["FreguesiaId"] = new SelectList(_context.Freguesia, "FreguesiaId", "Nome", pontosdeInteresse.FreguesiaId);
             return View(pontosdeInteresse);
         }
 
@@ -142,6 +152,8 @@ namespace MonuGuardaApp.Controllers
             }
 
             var pontosdeInteresse = await _context.PontosdeInteresse
+                .Include(p => p.Concelho)
+                .Include(p => p.Freguesia)
                 .FirstOrDefaultAsync(m => m.PontosdeInteresseId == id);
             if (pontosdeInteresse == null)
             {

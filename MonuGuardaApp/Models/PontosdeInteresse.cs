@@ -14,13 +14,11 @@ namespace MonuGuardaApp.Models
         [StringLength(40)]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "É necessário colocar freguesia")]
-        [StringLength(40)]
-        public string Freguesia { get; set; }
+        public int FreguesiaId { get; set; }
+        public Freguesia Freguesia { get; set; }
 
-        [Required(ErrorMessage = "É necessário colocar concelho")]
-        [StringLength(40)]
-        public string Concelho { get; set; }
+        public int ConcelhoId { get; set; }
+        public Concelho Concelho { get; set; }
 
         [Required(ErrorMessage = "É necessário colocar morada")]
         [StringLength(100)]

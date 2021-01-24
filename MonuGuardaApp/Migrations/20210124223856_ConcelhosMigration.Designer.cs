@@ -10,16 +10,50 @@ using MonuGuardaApp.Data;
 namespace MonuGuardaApp.Migrations
 {
     [DbContext(typeof(MonuGuardaAppContext))]
-    [Migration("20210119113610_PontosdeInteresseMigration")]
-    partial class PontosdeInteresseMigration
+    [Migration("20210124223856_ConcelhosMigration")]
+    partial class ConcelhosMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.10")
+                .HasAnnotation("ProductVersion", "3.1.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("MonuGuardaApp.Models.Concelho", b =>
+                {
+                    b.Property<int>("ConcelhoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
+
+                    b.HasKey("ConcelhoId");
+
+                    b.ToTable("Concelho");
+                });
+
+            modelBuilder.Entity("MonuGuardaApp.Models.Freguesia", b =>
+                {
+                    b.Property<int>("FreguesiaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
+
+                    b.HasKey("FreguesiaId");
+
+                    b.ToTable("Freguesia");
+                });
 
             modelBuilder.Entity("MonuGuardaApp.Models.Guia", b =>
                 {
@@ -28,14 +62,7 @@ namespace MonuGuardaApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DataDeNascimento")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Morada")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -60,8 +87,7 @@ namespace MonuGuardaApp.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Ordem")
-                        .HasColumnType("int")
-                        .HasMaxLength(2);
+                        .HasColumnType("int");
 
                     b.Property<int>("PontosdeInteresseId")
                         .HasColumnType("int");
@@ -85,20 +111,16 @@ namespace MonuGuardaApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Concelho")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(40)")
-                        .HasMaxLength(40);
+                    b.Property<int>("ConcelhoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Coordenadas")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<string>("Freguesia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(40)")
-                        .HasMaxLength(40);
+                    b.Property<int>("FreguesiaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Morada")
                         .IsRequired()
@@ -111,6 +133,10 @@ namespace MonuGuardaApp.Migrations
                         .HasMaxLength(40);
 
                     b.HasKey("PontosdeInteresseId");
+
+                    b.HasIndex("ConcelhoId");
+
+                    b.HasIndex("FreguesiaId");
 
                     b.ToTable("PontosdeInteresse");
                 });
@@ -128,7 +154,7 @@ namespace MonuGuardaApp.Migrations
                     b.Property<int>("NPessoas")
                         .HasColumnType("int");
 
-                    b.Property<int>("TuristaId")
+                    b.Property<int?>("TuristaId")
                         .HasColumnType("int");
 
                     b.Property<int>("VisitasGuiadasId")
@@ -229,13 +255,26 @@ namespace MonuGuardaApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MonuGuardaApp.Models.PontosdeInteresse", b =>
+                {
+                    b.HasOne("MonuGuardaApp.Models.Concelho", "Concelho")
+                        .WithMany()
+                        .HasForeignKey("ConcelhoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MonuGuardaApp.Models.Freguesia", "Freguesia")
+                        .WithMany()
+                        .HasForeignKey("FreguesiaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MonuGuardaApp.Models.ReservaVisita", b =>
                 {
                     b.HasOne("MonuGuardaApp.Models.Turista", "Turista")
                         .WithMany("ReservaVisitas")
-                        .HasForeignKey("TuristaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TuristaId");
 
                     b.HasOne("MonuGuardaApp.Models.VisitasGuiadas", "VisitasGuiadas")
                         .WithMany("ReservasVisita")
