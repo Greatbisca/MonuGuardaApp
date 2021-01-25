@@ -987,11 +987,6 @@ C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netc
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Details.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Edit.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Index.cshtml.g.cs
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhoes\Create.cshtml.g.cs
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhoes\Delete.cshtml.g.cs
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhoes\Details.cshtml.g.cs
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhoes\Edit.cshtml.g.cs
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhoes\Index.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Create.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Delete.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Details.cshtml.g.cs

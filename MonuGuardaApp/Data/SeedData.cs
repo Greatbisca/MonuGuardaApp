@@ -60,5 +60,76 @@ namespace MonuGuardaApp.Data
             await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_TURIST);
             await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_ADMINISTRATOR);
         }
+        internal static void Populate(MonuGuardaAppContext dbContext)
+        {
+            PopulateProducts(dbContext);
+        }
+        private static void PopulateProducts(MonuGuardaAppContext dbContext)
+        {
+            if (dbContext.Concelho.Any())
+            {
+                return;
+            }
+
+            dbContext.Concelho.AddRange(
+                new Concelho
+                {
+                    Nome = "Sabugal",
+                },
+                new Concelho
+                {
+                    Nome = "Guarda",
+                },
+                new Concelho
+                {
+                    Nome = "Celorico da Beira",
+                },
+                new Concelho
+                {
+                    Nome = "Trancoso",
+                },
+                new Concelho
+                {
+                    Nome = "Almeida",
+                },
+                new Concelho
+                {
+                    Nome = "Gouveia",
+                },
+                new Concelho
+                {
+                    Nome = "Figueira de Castelo Rodrigo",
+                },
+                new Concelho
+                {
+                    Nome = "Vila Nova de Foz Côa",
+                },
+                new Concelho
+                {
+                    Nome = "Pinhel",
+                },
+                new Concelho
+                {
+                    Nome = "Aguiar da Beira",
+                },
+                new Concelho
+                {
+                    Nome = "Fornos de Algodres",
+                },
+                new Concelho
+                {
+                    Nome = "Manteigas",
+                },
+                new Concelho
+                {
+                    Nome = "Seia",
+                },
+                new Concelho
+                {
+                    Nome = "Mêda",
+                }
+            );
+            dbContext.SaveChanges();
+        }
     }
 }

@@ -4,32 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 style="margin-top: 20px">Concelhos existentes:</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ConcelhoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ConcelhoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ConcelhoId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div style="margin-top: 20px" class="card-deck">
+    <div class="row justify-content-center">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card mt-50">
+                    <div class="card-body">
+                        <h4 class="card-text">
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
