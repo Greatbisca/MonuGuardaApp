@@ -66,6 +66,8 @@ namespace MonuGuardaApp.Data
         }
         private static void PopulateProducts(MonuGuardaAppContext dbContext)
         {
+
+
             if (dbContext.Concelho.Any())
             {
                 return;
@@ -127,8 +129,52 @@ namespace MonuGuardaApp.Data
                 new Concelho
                 {
                     Nome = "Mêda",
+                });
+            dbContext.SaveChanges();
+
+            if (dbContext.Guia.Any())
+                {
+                    return;
                 }
-            );
+
+                dbContext.Guia.AddRange(
+                   new Guia
+                   {
+                       Nome = "Rodrigo Ribeiro",
+                       Telemovel = 921456987,
+                       Email = "rodrigo@sapo.pt"
+                   },
+                   new Guia
+                   {
+                       Nome = "Mateus Alves",
+                       Telemovel = 914562587,
+                       Email = "mateus@ipg.pt"
+                   },
+                   new Guia
+                   {
+                       Nome = "Sofia Silva",
+                       Telemovel = 931456852,
+                       Email = "sofisilva@hotmail.com"
+                   },
+                   new Guia
+                   {
+                       Nome = "Rita Neto",
+                       Telemovel = 964785123,
+                       Email = "rita@hotmail.com"
+                   },
+                   new Guia
+                   {
+                       Nome = "Pedro Henrique",
+                       Telemovel = 914753695,
+                       Email = "enrique@hotmail.com"
+                   },
+                   new Guia
+                   {
+                       Nome = "Marta Abrunhosa",
+                       Telemovel = 925478951,
+                       Email = "martaa@gmail.pt"
+                   }
+               );
             dbContext.SaveChanges();
         }
     }
