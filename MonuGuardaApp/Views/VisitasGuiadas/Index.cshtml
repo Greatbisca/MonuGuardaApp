@@ -8,17 +8,15 @@
     <a asp-action="Create">Criar nova visita guiada</a>
 </p>
 <p>Veja as visitas guiadas disponíveis aqui!!</p>
-<div class="card mt-3 bg-info">
-    <div class="card-body">
-        <form asp-action="Index" method="get">
-            <input name="name" type="search" class="form-control" value="@Model.SearchName" />
-            <input name="page" type="hidden" value="1" />
-            <div class="mt-3">
-                <input type="submit" value="Procurar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Apagar</a>
-            </div>
-        </form>
-    </div>
+<div>
+    <form asp-action="Index" method="get">
+        <input name="name" type="search" class="form-control" value="@Model.SearchName" />
+        <input name="page" type="hidden" value="1" />
+        <div class="mt-3">
+            <input type="submit" value="Procurar" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-secondary">Apagar</a>
+        </div>
+    </form>
 </div>
 @foreach (var p in Model.VisitasGuiadas)
 {
