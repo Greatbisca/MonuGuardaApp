@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MonuGuardaApp.Models.Freguesia>
+﻿@model FreguesiaListViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -7,15 +7,25 @@
 <p style="margin-top: 20px">
     <a asp-action="Create">Criar nova Freguesia</a>
 </p>
+<div>
+    <form asp-action="Index" method="get">
+        <input name="name" type="search" class="form-control" value="@Model.SearchName" />
+        <input name="page" type="hidden" value="1" />
+        <div class="mt-3">
+            <input type="submit" value="Procurar" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-secondary">Apagar</a>
+        </div>
+    </form>
+</div>
 <h1 style="margin-top: 20px">Freguesias existentes:</h1>
 
 <div style="margin-top: 20px" class="card-deck">
     <div class="row justify-content-center">
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.Freguesias)
         {
             <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card mt-50">
+                <div class="card mt-50" style="width: 300px; height: 150px">
                     <div class="card-body">
                         <h4 class="card-title">
                             @Html.DisplayFor(modelItem => item.Nome)
@@ -29,4 +39,32 @@
         }
     </div>
 </div>
+<nav class="mt-3">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName"><<</a></li>
+
+        @{
+            int initalPage = Model.Pagination.CurrentPage - PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (initalPage < 1) initalPage = 1;
+
+            int finalPage = Model.Pagination.CurrentPage + PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (finalPage > Model.Pagination.TotalPages) finalPage = Model.Pagination.TotalPages;
+        }
+
+        @for (int p = initalPage; p <= finalPage; p++)
+        {
+            if (p == Model.Pagination.CurrentPage)
+            {
+                <li class="page-item active"><a class="page-link" href="#">@p</a></li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@p" asp-route-name="@Model.SearchName">@p</a></li>
+            }
+        }
+
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">>></a></li>
+    </ul>
+</nav>
+
 

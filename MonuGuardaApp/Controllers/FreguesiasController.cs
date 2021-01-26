@@ -20,9 +20,26 @@ namespace MonuGuardaApp.Controllers
         }
 
         // GET: Freguesias
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string name = null, int page = 1)
         {
-            return View(await _context.Freguesia.ToListAsync());
+            var pagination = new PagingInfo
+            {
+                CurrentPage = page,
+                PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
+                TotalItems = _context.Freguesia.Where(p => name == null || p.Nome.Contains(name)).Count()
+            };
+
+            return View(
+                new FreguesiaListViewModel
+                {
+                    Freguesias = _context.Freguesia.Where(p => name == null || p.Nome.Contains(name))
+                        .OrderBy(p => p.Nome)
+                        .Skip((page - 1) * pagination.PageSize)
+                        .Take(pagination.PageSize),
+                    Pagination = pagination,
+                    SearchName = name
+                }
+            );
         }
 
         // GET: Freguesias/Details/5
