@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<p style="margin-top: 20px">
+    <a asp-action="Create">Criar novo concelho</a>
+</p>
 <h1 style="margin-top: 20px">Concelhos existentes:</h1>
 
 <div style="margin-top: 20px" class="card-deck">
@@ -14,9 +16,12 @@
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card mt-50">
                     <div class="card-body">
-                        <h4 class="card-text">
+                        <h4 class="card-title">
                             @Html.DisplayFor(modelItem => item.Nome)
                         </h4>
+                        <h5 class="card-text">
+                            <a asp-action="Edit" asp-route-id="@item.ConcelhoId">Editar</a>
+                        </h5>
                     </div>
                 </div>
             </div>

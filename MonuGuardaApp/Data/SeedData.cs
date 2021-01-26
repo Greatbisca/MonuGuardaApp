@@ -66,8 +66,6 @@ namespace MonuGuardaApp.Data
         }
         private static void PopulateProducts(MonuGuardaAppContext dbContext)
         {
-
-
             if (dbContext.Concelho.Any())
             {
                 return;
@@ -130,7 +128,66 @@ namespace MonuGuardaApp.Data
                 {
                     Nome = "Mêda",
                 });
-            dbContext.SaveChanges();
+
+            if (dbContext.Freguesia.Any())
+            {
+                return;
+            }
+
+            dbContext.Freguesia.AddRange(
+                new Freguesia
+                {
+                    Nome = "Sabugal",
+                },
+                new Freguesia
+                {
+                    Nome = "Guarda",
+                },
+                new Freguesia
+                {
+                    Nome = "Linhares da Beira",
+                },
+                new Freguesia
+                {
+                    Nome = "Santa Maria",
+                },
+                new Freguesia
+                {
+                    Nome = "Almeida",
+                },
+                new Freguesia
+                {
+                    Nome = "Folgosinho",
+                },
+                new Freguesia
+                {
+                    Nome = "Escalhão",
+                },
+                new Freguesia
+                {
+                    Nome = "Sortelha",
+                },
+                new Freguesia
+                {
+                    Nome = "Vila Nova de Foz Côa",
+                },
+                new Freguesia
+                {
+                    Nome = "Pinhel",
+                },
+                new Freguesia
+                {
+                    Nome = "Castelo Rodrigo",
+                },
+                new Freguesia
+                {
+                    Nome = "Longroiva",
+                },
+                new Freguesia
+                {
+                    Nome = "Mêda",
+                }
+            );
 
             if (dbContext.Guia.Any())
                 {
