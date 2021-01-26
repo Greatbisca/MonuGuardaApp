@@ -992,3 +992,13 @@ C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netc
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Details.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Edit.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Index.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Create.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Delete.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Details.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Edit.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Concelhos\Index.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Create.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Delete.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Details.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Edit.cshtml.g.cs
+C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Index.cshtml.g.cs

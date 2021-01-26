@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Nossos Guias</h1>
+<p>Aqui pode consultar a os nossos guias disponíveis!</p>
 
 
 <div class="card mt-3 bg-info">
@@ -47,16 +48,16 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.GuiaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.GuiaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.GuiaId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.GuiaId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.GuiaId">Detailhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.GuiaId">Apagar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Novo Guia</a>
 </p>
 
 <nav class="mt-3">
