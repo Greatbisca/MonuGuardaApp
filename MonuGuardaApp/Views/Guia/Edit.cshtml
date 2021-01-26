@@ -4,40 +4,58 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar Guia</h1>
-
-<h4>Guia</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="carousel-item active" style="background-image: url('https://cdn.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/shutterstock_669550153_View%20at%20the%20Cathedral%20of%20Guarda_by%20%20milosk50.jpg?itok=CRjumpZA') ">
+    <div class="carousel-caption d-none d-md-block">
+        <h3>painel de Edição do Guia</h3>
+    </div>
+</div>
+<div>
+    <div>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="GuiaId" />
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <label asp-for="Nome" class="control-label">Nome</label>
+                </div>
+                <div class="col-md-4">
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Telemovel" class="control-label">Telemóvel</label>
-                <input asp-for="Telemovel" class="form-control" />
-                <span asp-validation-for="Telemovel" class="text-danger"></span>
+
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <label asp-for="Telemovel" class="control-label">Telemóvel</label>
+                </div>
+                <div class="col-md-4">
+                    <input asp-for="Telemovel" class="form-control" />
+                    <span asp-validation-for="Telemovel" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <label asp-for="Email" class="control-label">Email</label>
+                </div>
+                <div class="col-md-4">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+                <div class="col-md-2">
+                    <a asp-action="Index">Ver Lista</a>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Ver Lista</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

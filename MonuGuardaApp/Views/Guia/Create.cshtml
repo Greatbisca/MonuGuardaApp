@@ -4,10 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Criar Guia</h1>
-<hr />
-<div>
-    <div>
+<div class="carousel-item active" style="background-image: url('https://cdn.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/shutterstock_669550153_View%20at%20the%20Cathedral%20of%20Guarda_by%20%20milosk50.jpg?itok=CRjumpZA') ">
+    <div class="carousel-caption d-none d-md-block">
+        <h1>Bem-Vindo</h1>
+        <h4>Aqui pode criar guias</h4>
+    </div>
+</div>
+    <div style="margin-top: 20px">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group row">
@@ -49,7 +52,6 @@
             </div>
         </form>
     </div>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

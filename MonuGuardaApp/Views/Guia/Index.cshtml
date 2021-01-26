@@ -8,8 +8,7 @@
 <p>Aqui pode consultar a os nossos guias disponíveis!</p>
 
 
-<div class="card mt-3 bg-info">
-    <div class="card-body">
+<div>
         <form asp-action="Index" method="get">
             <input name="name" type="search" class="form-control" value="@Model.SearchName" />
             <input name="page" type="hidden" value="1" />
@@ -18,9 +17,8 @@
                 <a asp-action="Index" class="btn btn-secondary">Apagar</a>
             </div>
         </form>
-    </div>
 </div>
-<table class="table">
+<table class="table" style="margin-top: 20px">
     <thead>
         <tr>
             <th>
@@ -49,7 +47,7 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.GuiaId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.GuiaId">Detailhes</a> |
+                <a asp-action="Details" asp-route-id="@item.GuiaId">Detalhes</a> |
                 <a asp-action="Delete" asp-route-id="@item.GuiaId">Apagar</a>
             </td>
         </tr>
