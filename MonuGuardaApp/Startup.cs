@@ -37,7 +37,7 @@ namespace MonuGuardaApp
                 options.SignIn.RequireConfirmedAccount = false;
 
                 // Password
-                options.Password.RequireDigit = true;
+               /* options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
                 options.Password.RequiredLength = 8;
                 options.Password.RequiredUniqueChars = 6;
@@ -47,7 +47,7 @@ namespace MonuGuardaApp
                 // Lockout
                 options.Lockout.AllowedForNewUsers = true;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.MaxFailedAccessAttempts = 5;*/
             }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI();
 
             services.AddControllersWithViews();
@@ -101,7 +101,9 @@ namespace MonuGuardaApp
                     var dbContext = serviceScope.ServiceProvider.GetService<MonuGuardaAppContext>();
                     SeedData.Populate(dbContext);
                 }
+                SeedData.SeedDevData(db);
                 SeedData.SeedDevUsersAsync(userManager).Wait();
+
             }
         }
     }

@@ -58,7 +58,6 @@ namespace MonuGuardaApp.Data
         {
             await EnsureUserIsCreated(userManager, "guia@ipg.pt", "teste123$", ROLE_GUIDE);
             await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_TURIST);
-            await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_ADMINISTRATOR);
         }
         internal static void Populate(MonuGuardaAppContext dbContext)
         {
@@ -233,6 +232,11 @@ namespace MonuGuardaApp.Data
                    }
                );
             dbContext.SaveChanges();
+        }
+
+        internal static void SeedDevData(MonuGuardaAppContext db)
+        {
+            
         }
     }
 }
