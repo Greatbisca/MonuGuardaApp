@@ -598,7 +598,6 @@ C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netc
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Create.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Delete.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Details.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Edit.cshtml.g.cs
@@ -1012,3 +1011,4 @@ C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Edit.cshtml.g.cs
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Freguesias\Index.cshtml.g.cs
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Register.cshtml.g.cs
+C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Register.cshtml.g.cs
