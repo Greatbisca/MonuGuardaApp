@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +11,9 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
-    public class ReservaVisitasController : Controller
-    {
+    [Authorize(Roles = "Admin, Turista")]
+        public class ReservaVisitasController : Controller
+        {
         private readonly MonuGuardaAppContext _context;
 
         public ReservaVisitasController(MonuGuardaAppContext context)
