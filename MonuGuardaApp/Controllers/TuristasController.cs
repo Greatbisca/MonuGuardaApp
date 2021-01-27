@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
+
     public class TuristasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
@@ -18,13 +20,13 @@ namespace MonuGuardaApp.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Turistas
         public async Task<IActionResult> Index()
         {
             return View(await _context.Turista.ToListAsync());
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Turistas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
