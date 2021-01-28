@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -71,10 +73,17 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GuiaId,Nome,Telemovel,Email")] Guia guia)
+        public async Task<IActionResult> Create([Bind("GuiaId,Nome,Telemovel,Email")] Guia guia, IFormFile photoFile)
         {
             if (ModelState.IsValid)
             {
+                if (photoFile != null && photoFile.Length > 0) { 
+                    using (var memFile = new MemoryStream()) { 
+                        photoFile.CopyTo(memFile); 
+                        guia.Photo = memFile.ToArray(); 
+                    } 
+                }
+
                 _context.Add(guia);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -18,5 +18,7 @@ namespace MonuGuardaApp.Models
 
         [Required(ErrorMessage = "É necessário colocar o email")]
         public string Email { get; set; }
+
+        public byte[] Photo { get; set; }
     }
 }
