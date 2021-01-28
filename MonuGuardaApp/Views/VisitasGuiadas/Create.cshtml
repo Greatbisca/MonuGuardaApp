@@ -4,45 +4,47 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Criar nova visita guiada</h1>
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="GuiaId" class="control-label"></label>
-                <select asp-for="GuiaId" class ="form-control" asp-items="ViewBag.GuiaId"></select>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <section>
+                        <form id="account" method="post">
+                            <h5 class="card-title text-center"> Criar nova visita guiada</h5>
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="GuiaId" class="control-label">Guia</label>
+                                <select asp-for="GuiaId" class="form-control" asp-items="ViewBag.GuiaId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Nome" class="control-label"></label>
+                                <input asp-for="Nome" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DatadaVisita" class="control-label">Data da visita</label>
+                                <input asp-for="DatadaVisita" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Descricao" class="control-label">Descrição</label>
+                                <textarea asp-for="Descricao" class="form-control" style="height:130px; max-height:300px"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NMaxPessoas" class="control-label">Número máximo de pessoas</label>
+                                <input asp-for="NMaxPessoas" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Submeter</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" asp-action="Index">Voltar a lista</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DatadaVisita" class="control-label"></label>
-                <input asp-for="DatadaVisita" class="form-control" />
-                <span asp-validation-for="DatadaVisita" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NMaxPessoas" class="control-label"></label>
-                <input asp-for="NMaxPessoas" class="form-control" />
-                <span asp-validation-for="NMaxPessoas" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Voltar a lista</a>
 </div>
 

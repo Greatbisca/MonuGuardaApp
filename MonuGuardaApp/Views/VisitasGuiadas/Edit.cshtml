@@ -3,6 +3,56 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <section>
+                        <form id="account" method="post" asp-action="Edit">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="VisitasGuiadasId" />
+                            <h5 class="card-title text-center"> Editar visita guiada</h5>
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="GuiaId" class="control-label">Guia</label>
+                                <select asp-for="GuiaId" class="form-control" asp-items="ViewBag.GuiaId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Nome" class="control-label"></label>
+                                <input asp-for="Nome" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DatadaVisita" class="control-label">Data da visita</label>
+                                <input asp-for="DatadaVisita" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Descricao" class="control-label">Descrição</label>
+                                <textarea asp-for="Descricao" class="form-control" style="height:130px; max-height:300px"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NMaxPessoas" class="control-label">Número máximo de pessoas</label>
+                                <input asp-for="NMaxPessoas" class="form-control" />
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="Completo" /> @Html.DisplayNameFor(model => model.Completo)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Save">Submeter</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" asp-action="Index">Voltar a lista</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <h1>Editar visita guiada</h1>
 <hr />

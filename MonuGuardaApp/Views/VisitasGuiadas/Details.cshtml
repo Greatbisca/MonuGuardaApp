@@ -4,52 +4,49 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>VisitasGuiadas</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Guia)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Guia.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DatadaVisita)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DatadaVisita)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NMaxPessoas)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NMaxPessoas)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Completo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Completo)
-        </dd>
-        
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.VisitasGuiadasId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <section>
+                        <form id="account" method="post">
+                            <h5 class="card-title text-center">Detalhes da visita guiada</h5>
+                            <hr />
+                            <div class="form-group">
+                                <label asp-for="GuiaId" class="control-label font-weight-bold">Guia:</label>
+                                @Html.DisplayFor(model => model.Guia.Nome)
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Nome" class="control-label font-weight-bold">Nome:</label>
+                                @Html.DisplayFor(model => model.Nome)
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DatadaVisita" class="control-label font-weight-bold">Data da visita:</label>
+                                @Html.DisplayFor(model => model.DatadaVisita)
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Descricao" class="control-label font-weight-bold">Descrição:</label>
+                                @Html.DisplayFor(model => model.Descricao)
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NMaxPessoas" class="control-label font-weight-bold">Número máximo de pessoas:</label>
+                                @Html.DisplayFor(model => model.NMaxPessoas)
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Completo" class="control-label font-weight-bold">Completo:</label>
+                                @Html.DisplayFor(model => model.Completo)
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" asp-action="Edit" asp-route-id="@Model.VisitasGuiadasId">Editar</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" asp-action="Index">Voltar a lista</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
