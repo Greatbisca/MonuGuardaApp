@@ -18,9 +18,10 @@ namespace MonuGuardaApp.Controllers
         private readonly MonuGuardaAppContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public TuristasController(MonuGuardaAppContext context)
+        public TuristasController(MonuGuardaAppContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         [Authorize(Roles = "Admin")]
         // GET: Turistas
@@ -75,7 +76,7 @@ namespace MonuGuardaApp.Controllers
             }
             user = new IdentityUser(username); 
             await _userManager.CreateAsync(user, turistaInfo.Password); 
-            await _userManager.AddToRoleAsync(user, "Cliente"); 
+            await _userManager.AddToRoleAsync(user, "Turista"); 
 
             Turista turista = new Turista
             {
