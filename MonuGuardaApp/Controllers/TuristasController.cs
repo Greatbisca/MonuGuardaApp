@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ namespace MonuGuardaApp.Controllers
     public class TuristasController : Controller
     {
         private readonly MonuGuardaAppContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public TuristasController(MonuGuardaAppContext context)
         {
@@ -46,7 +48,7 @@ namespace MonuGuardaApp.Controllers
         }
 
         // GET: Turistas/Create
-        public IActionResult Create()
+        public IActionResult Register()
         {
             return View();
         }
@@ -57,15 +59,35 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TuristaId,Nome,Morada,NIF,Email,Telemovel,DataNascimento")] Turista turista)
+        public async Task<IActionResult> Register(RegisterTuristaViewModel turistaInfo)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(turista);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            if (!ModelState.IsValid) { 
+                return View(turistaInfo); 
             }
-            return View(turista);
+            string username = turistaInfo.Email;
+
+            IdentityUser user = await _userManager.FindByNameAsync(username); 
+
+            if (user != null) 
+            { 
+                ModelState.AddModelError("Email", "Já foi criada uma conta com este email."); 
+                return View(turistaInfo); 
+            }
+            user = new IdentityUser(username); 
+            await _userManager.CreateAsync(user, turistaInfo.Password); 
+            await _userManager.AddToRoleAsync(user, "Cliente"); 
+
+            Turista turista = new Turista
+            {
+                Nome = turistaInfo.Nome, 
+                Telemovel = turistaInfo.Telemovel, 
+                Morada = turistaInfo.Morada,
+                NIF = turistaInfo.NIF, 
+                Email = turistaInfo.Email 
+            }; 
+            _context.Add(turista);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index), "Home");
         }
 
         // GET: Turistas/Edit/5

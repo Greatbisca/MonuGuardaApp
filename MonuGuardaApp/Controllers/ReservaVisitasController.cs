@@ -69,7 +69,7 @@ namespace MonuGuardaApp.Controllers
 
             return View(reservaVisita);
         }
-        [Authorize(Roles = "Admin, Turista")]
+        [Authorize(Roles = "Turista")]
         // GET: ReservaVisitas/Create
         public IActionResult Create()
         {
@@ -81,6 +81,7 @@ namespace MonuGuardaApp.Controllers
         // POST: ReservaVisitas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Turista")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TuristaId,VisitasGuiadasId,DataReserva,NPessoas")] ReservaVisita reservaVisita)
@@ -115,7 +116,7 @@ namespace MonuGuardaApp.Controllers
         // POST: ReservaVisitas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
- 
+        [Authorize(Roles = "Turista")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ReservaVisitaId,TuristaId,VisitasGuiadasId,DataReserva,NPessoas")] ReservaVisita reservaVisita)
@@ -124,7 +125,7 @@ namespace MonuGuardaApp.Controllers
             {
                 return NotFound();
             }
-
+                
             if (ModelState.IsValid)
             {
                 try
@@ -170,6 +171,7 @@ namespace MonuGuardaApp.Controllers
         }
 
         // POST: ReservaVisitas/Delete/5
+        [Authorize(Roles = "Turista")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
