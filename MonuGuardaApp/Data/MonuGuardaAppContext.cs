@@ -17,14 +17,14 @@ namespace MonuGuardaApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           modelBuilder.Entity<ReservaVisita>()
-                .HasKey(bc => new {bc.VisitasGuiadasId });
+           //modelBuilder.Entity<ReservaVisita>()
+           //     .HasKey(bc => new {bc.VisitasGuiadasId });
 
-            modelBuilder.Entity<ReservaVisita>()
-                .HasOne(bc => bc.VisitasGuiadas)
-                .WithMany(c => c.ReservasVisita)
-                .HasForeignKey(bc => bc.VisitasGuiadasId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+           // modelBuilder.Entity<ReservaVisita>()
+           //     .HasOne(bc => bc.VisitasGuiadas)
+           //     .WithMany(c => c.ReservasVisita)
+           //     .HasForeignKey(bc => bc.VisitasGuiadasId)
+           //     .OnDelete(DeleteBehavior.ClientSetNull);
 
             base.OnModelCreating(modelBuilder);
         }
