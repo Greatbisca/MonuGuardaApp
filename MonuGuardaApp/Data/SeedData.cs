@@ -56,8 +56,8 @@ namespace MonuGuardaApp.Data
 
         internal static async Task SeedDevUsersAsync(UserManager<IdentityUser> userManager)
         {
-            await EnsureUserIsCreated(userManager, "guia@ipg.pt", "teste123$", ROLE_GUIDE);
-            await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "teste123$", ROLE_TURIST);
+            await EnsureUserIsCreated(userManager, "guia@ipg.pt", "Teste123$", ROLE_GUIDE);
+            await EnsureUserIsCreated(userManager, "cliente@ipg.pt", "Teste123$", ROLE_TURIST);
         }
         internal static void Populate(MonuGuardaAppContext dbContext)
         {
