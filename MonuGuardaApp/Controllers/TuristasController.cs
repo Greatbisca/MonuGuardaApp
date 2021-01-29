@@ -91,6 +91,62 @@ namespace MonuGuardaApp.Controllers
             return RedirectToAction(nameof(Index), "Home");
         }
 
+        [Authorize(Roles = "Turista")]
+        public async Task<IActionResult> EditPersonalData()
+        {
+            string email = User.Identity.Name;
+
+            var turista = await _context.Turista.SingleOrDefaultAsync(c => c.Email == email);
+            if (turista == null)
+            {
+                return NotFound();
+            }
+
+            EditLoggedInTuristaViewModel turistaInfo = new EditLoggedInTuristaViewModel
+            {
+                Nome =turista.Nome,
+                Email = turista.Email,
+                NIF = turista.NIF,
+                Morada = turista.Morada
+            };
+
+            return View(turistaInfo);
+        }
+
+        // POST: Customers/EditLoggedInCustomerViewModel
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Turista")]
+        public async Task<IActionResult> EditPersonalData(EditLoggedInTuristaViewModel turista)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(turista);
+            }
+
+            string email = User.Identity.Name;
+
+            var turistaLoggedin = await _context.Turista.SingleOrDefaultAsync(c => c.Email == email);
+            if (turistaLoggedin == null)
+            {
+                return NotFound();
+            }
+
+            turistaLoggedin.Nome = turista.Nome;
+
+            try
+            {
+                _context.Update(turistaLoggedin);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                //todo: show error message
+
+                throw;
+            }
+            return RedirectToAction(nameof(Index), "Home");
+        }
         // GET: Turistas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
