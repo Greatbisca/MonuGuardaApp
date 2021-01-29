@@ -11,8 +11,8 @@ using MonuGuardaApp.Models;
 
 namespace MonuGuardaApp.Controllers
 {
-    
-        public class ReservaVisitasController : Controller
+    [Authorize(Roles = "Turista, Admin")]
+    public class ReservaVisitasController : Controller
         {
         private readonly MonuGuardaAppContext _context;
 
@@ -20,7 +20,6 @@ namespace MonuGuardaApp.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles = "Admin")]
         // GET: ReservaVisitas
         public IActionResult Index(DateTime? dataInicio = null, DateTime? dataFim = null, int page = 1)
         {
@@ -49,7 +48,6 @@ namespace MonuGuardaApp.Controllers
             }
             );
         }
-        [Authorize(Roles = "Admin, Turista")]
         // GET: ReservaVisitas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -69,7 +67,6 @@ namespace MonuGuardaApp.Controllers
 
             return View(reservaVisita);
         }
-        [Authorize(Roles = "Turista")]
         // GET: ReservaVisitas/Create
         public IActionResult Create()
         {
@@ -81,7 +78,6 @@ namespace MonuGuardaApp.Controllers
         // POST: ReservaVisitas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Turista")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TuristaId,VisitasGuiadasId,DataReserva,NPessoas")] ReservaVisita reservaVisita)
@@ -95,7 +91,6 @@ namespace MonuGuardaApp.Controllers
             ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Nome", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
-        [Authorize(Roles =  "Turista")]
         // GET: ReservaVisitas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -116,7 +111,6 @@ namespace MonuGuardaApp.Controllers
         // POST: ReservaVisitas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Turista")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ReservaVisitaId,TuristaId,VisitasGuiadasId,DataReserva,NPessoas")] ReservaVisita reservaVisita)
@@ -149,7 +143,6 @@ namespace MonuGuardaApp.Controllers
             ViewData["VisitasGuiadasId"] = new SelectList(_context.Set<VisitasGuiadas>(), "VisitasGuiadasId", "Nome", reservaVisita.VisitasGuiadasId);
             return View(reservaVisita);
         }
-        [Authorize(Roles = "Turista")]
         // GET: ReservaVisitas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -171,7 +164,6 @@ namespace MonuGuardaApp.Controllers
         }
 
         // POST: ReservaVisitas/Delete/5
-        [Authorize(Roles = "Turista")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
