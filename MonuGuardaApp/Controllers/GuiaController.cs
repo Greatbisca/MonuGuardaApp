@@ -112,7 +112,7 @@ namespace MonuGuardaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GuiaId,Nome,Telemovel,Email")] Guia guia)
+        public async Task<IActionResult> Edit(int id, [Bind("GuiaId,Nome,Telemovel,Email")] Guia guia, IFormFile photoFile)
         {
             if (id != guia.GuiaId)
             {
@@ -121,6 +121,15 @@ namespace MonuGuardaApp.Controllers
 
             if (ModelState.IsValid)
             {
+                if (photoFile != null && photoFile.Length > 0)
+                {
+                    using (var memFile = new MemoryStream())
+                    {
+                        photoFile.CopyTo(memFile);
+                        guia.Photo = memFile.ToArray();
+                    }
+                }
+
                 try
                 {
                     _context.Update(guia);
