@@ -187,7 +187,7 @@ namespace MonuGuardaApp.Data
                     Nome = "Mêda",
                 }
             );
-
+            /*
             if (dbContext.Guia.Any())
                 {
                     return;
@@ -230,7 +230,7 @@ namespace MonuGuardaApp.Data
                        Telemovel = 925478951,
                        Email = "martaa@gmail.pt"
                    }
-               );
+               );*/
             dbContext.SaveChanges();
         }
 
