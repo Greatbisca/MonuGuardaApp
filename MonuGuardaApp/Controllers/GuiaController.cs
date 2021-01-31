@@ -64,6 +64,7 @@ namespace MonuGuardaApp.Controllers
         }
 
         // GET: Guia/Create
+        [Authorize(Roles = "Admin, Guia")]
         public IActionResult Create()
         {
             return View();
