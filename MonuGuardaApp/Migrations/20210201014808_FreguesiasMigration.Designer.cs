@@ -10,8 +10,8 @@ using MonuGuardaApp.Data;
 namespace MonuGuardaApp.Migrations
 {
     [DbContext(typeof(MonuGuardaAppContext))]
-    [Migration("20210129100821_GuiaMigration")]
-    partial class GuiaMigration
+    [Migration("20210201014808_FreguesiasMigration")]
+    partial class FreguesiasMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -146,8 +146,10 @@ namespace MonuGuardaApp.Migrations
 
             modelBuilder.Entity("MonuGuardaApp.Models.ReservaVisita", b =>
                 {
-                    b.Property<int>("VisitasGuiadasId")
-                        .HasColumnType("int");
+                    b.Property<int>("ReservaVisitaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DataReserva")
                         .HasColumnType("datetime2");
@@ -155,15 +157,17 @@ namespace MonuGuardaApp.Migrations
                     b.Property<int>("NPessoas")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReservaVisitaId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("TuristaId")
                         .HasColumnType("int");
 
-                    b.HasKey("VisitasGuiadasId");
+                    b.Property<int>("VisitasGuiadasId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReservaVisitaId");
 
                     b.HasIndex("TuristaId");
+
+                    b.HasIndex("VisitasGuiadasId");
 
                     b.ToTable("ReservaVisita");
                 });
@@ -278,6 +282,7 @@ namespace MonuGuardaApp.Migrations
                     b.HasOne("MonuGuardaApp.Models.VisitasGuiadas", "VisitasGuiadas")
                         .WithMany("ReservasVisita")
                         .HasForeignKey("VisitasGuiadasId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

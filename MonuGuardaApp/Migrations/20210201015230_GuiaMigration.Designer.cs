@@ -10,8 +10,8 @@ using MonuGuardaApp.Data;
 namespace MonuGuardaApp.Migrations
 {
     [DbContext(typeof(MonuGuardaAppContext))]
-    [Migration("20210124223526_FreguesiasMigration")]
-    partial class FreguesiasMigration
+    [Migration("20210201015230_GuiaMigration")]
+    partial class GuiaMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,9 @@ namespace MonuGuardaApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<int>("Telemovel")
                         .HasColumnType("int");
