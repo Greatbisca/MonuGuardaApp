@@ -4,39 +4,40 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>ReservaVisita</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Turista)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Turista.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VisitasGuiadas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VisitasGuiadas.Descricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataReserva)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataReserva)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NPessoas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NPessoas)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ReservaVisitaId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<h1>Detalhes</h1>
+
+    <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card mt-50">
+            <div class="card-body">
+                <h4 class="card-title">
+                    @Html.DisplayNameFor(model => model.Turista)
+                </h4>
+                <p class="card-text">
+                <p>
+                    @Html.DisplayFor(model => model.Turista.Nome)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.VisitasGuiadas)
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.VisitasGuiadas.Descricao)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.DataReserva)
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.DataReserva)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.NPessoas)
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.NPessoas)
+                </p>
+            </div>
+            <div>
+                <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.ReservaVisitaId">Editar</a>
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+
