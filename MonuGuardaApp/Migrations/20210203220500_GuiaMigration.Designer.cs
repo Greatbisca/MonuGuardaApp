@@ -10,7 +10,7 @@ using MonuGuardaApp.Data;
 namespace MonuGuardaApp.Migrations
 {
     [DbContext(typeof(MonuGuardaAppContext))]
-    [Migration("20210201015230_GuiaMigration")]
+    [Migration("20210203220500_GuiaMigration")]
     partial class GuiaMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

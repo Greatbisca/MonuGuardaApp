@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ namespace MonuGuardaApp.Controllers
         {
             _context = context;
         }
-
+        
         // GET: VisitasGuiadas
         public IActionResult Index(string name = null, int page = 1)
         {
@@ -61,7 +62,7 @@ namespace MonuGuardaApp.Controllers
 
             return View(visitasGuiadas);
         }
-
+        [Authorize(Roles = "Admin, Guia")]
         // GET: VisitasGuiadas/Create
         public IActionResult Create()
         {
@@ -85,7 +86,7 @@ namespace MonuGuardaApp.Controllers
             ViewData["GuiaId"] = new SelectList(_context.Guia, "GuiaId", "Nome", visitasGuiadas.GuiaId);
             return View(visitasGuiadas);
         }
-
+        [Authorize(Roles = "Admin, Guia")]
         // GET: VisitasGuiadas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

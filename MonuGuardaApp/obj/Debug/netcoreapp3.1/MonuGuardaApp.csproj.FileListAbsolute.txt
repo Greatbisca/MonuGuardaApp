@@ -416,9 +416,6 @@ C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\MonuGuardaApp.genruntimeconfig.cache
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
-C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\MonuGuardaApp.StaticWebAssets.xml
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\MonuGuardaApp.exe
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\bin\Debug\netcoreapp3.1\MonuGuardaApp.deps.json
@@ -1012,3 +1009,4 @@ C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp
 C:\Users\diogo\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Register.cshtml.g.cs
 C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Register.cshtml.g.cs
 C:\Users\franc\Documents\GitHub\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\Razor\Views\Turistas\Register.cshtml.g.cs
+C:\Users\asus\Source\Repos\Greatbisca\MonuGuardaApp\MonuGuardaApp\obj\Debug\netcoreapp3.1\scopedcss\bundle\MonuGuardaApp.styles.css
